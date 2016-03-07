@@ -1,0 +1,60 @@
+Addr of buf1 = 0x7f3a33a99010
+Offs of buf1 = 0x7f3a33a99180
+Addr of buf2 = 0x7f3a01a98010
+Offs of buf2 = 0x7f3a01a981c0
+Addr of buf3 = 0x7f39cfa97010
+Offs of buf3 = 0x7f39cfa97100
+Addr of buf4 = 0x7f399da96010
+Offs of buf4 = 0x7f399da96140
+Threads #: 36 OpenMP threads
+Matrix size: 10240
+Using multiply kernel: multiply3
+Execution time = 92.686 seconds
+Addr of buf1 = 0x7f83942d0010
+Offs of buf1 = 0x7f83942d0180
+Addr of buf2 = 0x7f83622cf010
+Offs of buf2 = 0x7f83622cf1c0
+Addr of buf3 = 0x7f83302ce010
+Offs of buf3 = 0x7f83302ce100
+Addr of buf4 = 0x7f82fe2cd010
+Offs of buf4 = 0x7f82fe2cd140
+Threads #: 36 OpenMP threads
+Matrix size: 10240
+Using multiply kernel: multiply3
+Execution time = 56.275 seconds
+Addr of buf1 = 0x7f066985f010
+Offs of buf1 = 0x7f066985f180
+Addr of buf2 = 0x7f063785e010
+Offs of buf2 = 0x7f063785e1c0
+Addr of buf3 = 0x7f060585d010
+Offs of buf3 = 0x7f060585d100
+Addr of buf4 = 0x7f05d385c010
+Offs of buf4 = 0x7f05d385c140
+Threads #: 36 OpenMP threads
+Matrix size: 10240
+Using multiply kernel: multiply3
+Execution time = 106.949 seconds
+Addr of buf1 = 0x7fdb34993010
+Offs of buf1 = 0x7fdb34993180
+Addr of buf2 = 0x7fdb02992010
+Offs of buf2 = 0x7fdb029921c0
+Addr of buf3 = 0x7fdad0991010
+Offs of buf3 = 0x7fdad0991100
+Addr of buf4 = 0x7fda9e990010
+Offs of buf4 = 0x7fda9e990140
+Threads #: 36 OpenMP threads
+Matrix size: 10240
+Using multiply kernel: multiply3
+Execution time = 68.812 seconds
+Addr of buf1 = 0x7f9e29ad7010
+Offs of buf1 = 0x7f9e29ad7180
+Addr of buf2 = 0x7f9df7ad6010
+Offs of buf2 = 0x7f9df7ad61c0
+Addr of buf3 = 0x7f9dc5ad5010
+Offs of buf3 = 0x7f9dc5ad5100
+Addr of buf4 = 0x7f9d93ad4010
+Offs of buf4 = 0x7f9d93ad4140
+Threads #: 36 OpenMP threads
+Matrix size: 10240
+Using multiply kernel: multiply3
+Execution time = 45.937 seconds
