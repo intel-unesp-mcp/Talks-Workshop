@@ -42,7 +42,7 @@
 #include "interpolate.h"
 
 const int steps = 512;
-const int ARRAY_SIZE = 2048;
+const int ARRAY_SIZE = 20480;
 
 int main(int argc, char* argv[])
 {

@@ -103,31 +103,16 @@ Begin optimization report for: multiply3(int, int, int, TYPE (*)[10240], TYPE (*
 
 
 LOOP BEGIN at ../src/multiply.c(212,2)
-   remark #15542: loop was not vectorized: inner loop was already vectorized
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between c line 216 and c line 216
 
    LOOP BEGIN at ../src/multiply.c(215,4)
-   <Peeled loop for vectorization>
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed FLOW dependence between c line 216 and a line 216
    LOOP END
 
    LOOP BEGIN at ../src/multiply.c(215,4)
-      remark #15301: OpenMP SIMD LOOP WAS VECTORIZED
-      remark #15442: entire loop may be executed in remainder
-      remark #15448: unmasked aligned unit stride loads: 2 
-      remark #15449: unmasked aligned unit stride stores: 1 
-      remark #15475: --- begin vector loop cost summary ---
-      remark #15476: scalar loop cost: 9 
-      remark #15477: vector loop cost: 4.000 
-      remark #15478: estimated potential speedup: 1.850 
-      remark #15488: --- end vector loop cost summary ---
-   LOOP END
-
-   LOOP BEGIN at ../src/multiply.c(215,4)
-   <Alternate Alignment Vectorized Loop>
-   LOOP END
-
-   LOOP BEGIN at ../src/multiply.c(215,4)
-   <Remainder loop for vectorization>
-      remark #15335: remainder loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   <Remainder>
    LOOP END
 LOOP END
 ===========================================================================
@@ -416,29 +401,16 @@ LOOP END
 
 
 LOOP BEGIN at ../src/multiply.c(212,2)
-   remark #15542: loop was not vectorized: inner loop was already vectorized
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between c line 216 and c line 216
 
    LOOP BEGIN at ../src/multiply.c(215,4)
-   <Peeled loop for vectorization>
-      remark #15301: PEEL LOOP WAS VECTORIZED
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed FLOW dependence between c line 216 and a line 216
    LOOP END
 
    LOOP BEGIN at ../src/multiply.c(215,4)
-      remark #15301: OpenMP SIMD LOOP WAS VECTORIZED
-      remark #15475: --- begin vector loop cost summary ---
-      remark #15476: scalar loop cost: 9 
-      remark #15477: vector loop cost: 1.250 
-      remark #15478: estimated potential speedup: 2.900 
-      remark #15488: --- end vector loop cost summary ---
-   LOOP END
-
-   LOOP BEGIN at ../src/multiply.c(215,4)
-   <Alternate Alignment Vectorized Loop>
-   LOOP END
-
-   LOOP BEGIN at ../src/multiply.c(215,4)
-   <Remainder loop for vectorization>
-      remark #15301: REMAINDER LOOP WAS VECTORIZED
+   <Remainder>
    LOOP END
 LOOP END
 ===========================================================================

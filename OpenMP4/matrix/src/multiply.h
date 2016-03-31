@@ -19,7 +19,8 @@
 */
 #pragma omp declare target
 #ifdef __MIC__
-#define MAXTHREADS 180
+#define MAXTHREADS 120
+//#define MAXTHREADS 180
 #define NUM 10240
 #define MATRIX_BLOCK_SIZE 64
 #else
