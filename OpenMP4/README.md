@@ -1,6 +1,8 @@
 # OpenMP 4.0
 
-# 1. Vectorization
+# 1. OpenMP Sample Program
+
+# 2. Vectorization
 
 ```
 export OMP_NUM_THREADS=36 
@@ -10,11 +12,11 @@ time ./matrix.icc
 
 Vtune Code
 
-# 2. Offload
+# 3. Offload
 
-# 3. Transfer block
+# 4. Transfer block
 
-# 4. Update Data
+# 5. Update Data
 
-# 5. Thread League
+# 6. Thread League
 
