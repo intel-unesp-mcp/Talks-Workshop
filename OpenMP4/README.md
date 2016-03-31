@@ -55,8 +55,35 @@ sys     0m4.421s
 
 # Simd function (interpolation)
 
-# THread and Simd
+```
+make clean
+make OMP=no
+time ./main
+```
+Test completed in 1053563 nsec
 
+real    0m21.074s
+user    0m21.059s
+sys     0m0.004s
+
+```
+make clean
+make OMP=yes
+time ./main
+```
+
+Test completed in 342512 nsec
+
+real    0m6.853s
+user    0m6.849s
+sys     0m0.001s
+
+# Thread and Simd
+
+```
+icc matrixompforsimd.c -o matrixompforsimd -fopenmp
+time ./matrixompforsimd
+```
 
 # 3. Offload
 
