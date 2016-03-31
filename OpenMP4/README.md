@@ -246,3 +246,15 @@ Execution time = 54.168 seconds
 real    1m33.892s
 user    1m15.744s
 sys     0m1.846s
+
+# N-Body
+
+Execute N-body paralelized for Host
+```
+time ./nbody-v0d
+```
+
+Execute N-body with load balacing between host and devices
+```
+time ./nbody-v3d
+```
