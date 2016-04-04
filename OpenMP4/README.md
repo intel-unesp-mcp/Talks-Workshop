@@ -68,6 +68,9 @@ export KMP_AFFINITY=scatter
 time ./matrix.icc
 ```
 
+Results:
+
+```
 Threads #: 36 OpenMP threads <p>
 Matrix size: 10240 <p>
 Using multiply kernel: multiply3 <p>
@@ -77,6 +80,7 @@ Execution time = 64.138 seconds <p>
 real    1m5.096s <p>
 user    33m24.241s <p>
 sys     0m4.421s <p>
+```
 
 Running Matrix Multiplication Example with #pragma omp simd
 
@@ -90,6 +94,9 @@ export KMP_AFFINITY=scatter
 time ./matrix.icc
 ```
 
+Results:
+
+```
 Threads #: 36 OpenMP threads <p>
 Matrix size: 10240 <p>
 Using multiply kernel: multiply3 <p>
@@ -99,8 +106,9 @@ Execution time = 46.375 seconds <p>
 real    0m56.772s <p>
 user    28m19.769s <p>
 sys     0m3.596s <p>
+```
 
-# Simd function (interpolation)
+# Simd function (Interpolation)
 
 ```
 make clean
