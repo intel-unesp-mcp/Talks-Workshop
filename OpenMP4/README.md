@@ -12,6 +12,26 @@ Demonstrations <p>
 
 # 1. OpenMP Sample Program
 
+Build the application for Xeon (without OpenMP Option)
+```
+icc OMP-hello.c -o OMP-hello
+```
+
+The OpenMP pragmas are ignored by compiler:
+```
+OMP-hello.c(10): warning #3180: unrecognized OpenMP #pragma
+      #pragma omp parallel
+              ^
+
+OMP-hello.c(19): warning #3180: unrecognized OpenMP #pragma
+      #pragma omp for
+              ^
+
+OMP-hello.c(24): warning #3180: unrecognized OpenMP #pragma
+      #pragma omp for
+              ^
+```
+
 Build the application for Xeon
 ```
 icc OMP-hello.c -o OMP-hello -fopenmp
@@ -34,8 +54,37 @@ micnativeloadex ./OMP-hello.mic -e "LD_LIBRARY_PATH=/opt/intel/lib/mic/"
 
 # 2. Vectorization
 
-# simd (Matrix Multiplication)
+# SIMD (Matrix Multiplication)
+
+Running Matrix Multiplication Example without #pragma omp simd
+
 ```
+cd matrix/linux/
+vim ../src/multiply.h
+change line 38 to: #define MULTIPLY multiply4
+make icc
+export OMP_NUM_THREADS=36 
+export KMP_AFFINITY=scatter
+time ./matrix.icc
+```
+
+Threads #: 36 OpenMP threads <p>
+Matrix size: 10240 <p>
+Using multiply kernel: multiply3 <p>
+Freq = 1.998753 GHz <p>
+Execution time = 64.138 seconds <p>
+
+real    1m5.096s <p>
+user    33m24.241s <p>
+sys     0m4.421s <p>
+
+Running Matrix Multiplication Example with #pragma omp simd
+
+```
+cd matrix/linux/
+vim ../src/multiply.h
+change line 38 to: #define MULTIPLY multiply5
+make icc
 export OMP_NUM_THREADS=36 
 export KMP_AFFINITY=scatter
 time ./matrix.icc
@@ -50,18 +99,6 @@ Execution time = 46.375 seconds <p>
 real    0m56.772s <p>
 user    28m19.769s <p>
 sys     0m3.596s <p>
-
-Without #pragma omp simd
-
-Threads #: 36 OpenMP threads <p>
-Matrix size: 10240 <p>
-Using multiply kernel: multiply3 <p>
-Freq = 1.998753 GHz <p>
-Execution time = 64.138 seconds <p>
-
-real    1m5.096s <p>
-user    33m24.241s <p>
-sys     0m4.421s <p>
 
 # Simd function (interpolation)
 
