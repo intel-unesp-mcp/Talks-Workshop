@@ -1,5 +1,15 @@
 # OpenMP 4.0
 
+Demonstrations <p>
+
+* OpenMP Sample Program
+* Vectorization
+* Offload
+* Target Data
+* Target Update
+* Thread League
+* N-Body
+
 # 1. OpenMP Sample Program
 
 Build the application for Xeon
@@ -208,7 +218,6 @@ real    1m6.286s <p>
 user    0m48.385s <p>
 sys     0m1.665s <p>
 
-
 # 6. Thread League
 
 ```
@@ -247,7 +256,7 @@ real    1m33.892s <p>
 user    1m15.744s <p>
 sys     0m1.846s <p>
 
-# N-Body
+# 7. N-Body
 
 Execute N-body paralelized for Host
 ```
