@@ -129,7 +129,7 @@ real    0m21.074s <p>
 user    0m21.059s <p>
 sys     0m0.004s <p>
 ```
-Running Interpolation without vectorized functions
+Running Interpolation with vectorized functions
 
 ```
 make clean
@@ -157,17 +157,6 @@ time ./matrixompforsimd
 Examples using offload pragmas.
 
 ## target
-
-multiply5 - execute matrix multiplication on Xeon Card.
-
-```
-export MIC_OMP_NUM_THREADS=120
-export MIC_KMP_AFFINITY=scatter
-export OFFLOAD_REPORT=2
-./matrix.icc
-```
-
-target
 
 ```
 export MIC_OMP_NUM_THREADS=120
@@ -205,29 +194,29 @@ Offload Report and Results:
 
 ```
 Using multiply kernel: multiply7 <p>
-[Offload] [MIC 0] [File]                    ../src/multiply.c <p>
-[Offload] [MIC 0] [Line]                    284 <p>
-[Offload] [MIC 0] [Tag]                     Tag 0 <p>
-[Offload] [HOST]  [Tag 0] [CPU Time]        5.487947(seconds) <p>
-[Offload] [MIC 0] [Tag 0] [CPU->MIC Data]   2516582436 (bytes) <p>
-[Offload] [MIC 0] [Tag 0] [MIC Time]        0.000127(seconds) <p>
-[Offload] [MIC 0] [Tag 0] [MIC->CPU Data]   0 (bytes) <p>
+[Offload] [MIC 0] [File]                    ../src/multiply.c 
+[Offload] [MIC 0] [Line]                    284 
+[Offload] [MIC 0] [Tag]                     Tag 0
+[Offload] [HOST]  [Tag 0] [CPU Time]        5.487947(seconds) 
+[Offload] [MIC 0] [Tag 0] [CPU->MIC Data]   2516582436 (bytes)
+[Offload] [MIC 0] [Tag 0] [MIC Time]        0.000127(seconds)
+[Offload] [MIC 0] [Tag 0] [MIC->CPU Data]   0 (bytes) 
 
-[Offload] [MIC 0] [File]                    ../src/multiply.c <p>
-[Offload] [MIC 0] [Line]                    286 <p>
-[Offload] [MIC 0] [Tag]                     Tag 1 <p>
-[Offload] [HOST]  [Tag 1] [CPU Time]        32.173884(seconds) <p>
-[Offload] [MIC 0] [Tag 1] [CPU->MIC Data]   36 (bytes) <p>
-[Offload] [MIC 0] [Tag 1] [MIC Time]        46.540515(seconds) <p>
-[Offload] [MIC 0] [Tag 1] [MIC->CPU Data]   4 (bytes) <p>
+[Offload] [MIC 0] [File]                    ../src/multiply.c 
+[Offload] [MIC 0] [Line]                    286 
+[Offload] [MIC 0] [Tag]                     Tag 1 
+[Offload] [HOST]  [Tag 1] [CPU Time]        32.173884(seconds) 
+[Offload] [MIC 0] [Tag 1] [CPU->MIC Data]   36 (bytes) 
+[Offload] [MIC 0] [Tag 1] [MIC Time]        46.540515(seconds) 
+[Offload] [MIC 0] [Tag 1] [MIC->CPU Data]   4 (bytes) 
 
-[Offload] [MIC 0] [File]                    ../src/multiply.c <p>
-[Offload] [MIC 0] [Line]                    299 <p>
-[Offload] [MIC 0] [Tag]                     Tag 2 <p>
-[Offload] [HOST]  [Tag 2] [CPU Time]        0.082984(seconds) <p>
-[Offload] [MIC 0] [Tag 2] [CPU->MIC Data]   56 (bytes) <p>
-[Offload] [MIC 0] [Tag 2] [MIC Time]        0.000060(seconds) <p>
-[Offload] [MIC 0] [Tag 2] [MIC->CPU Data]   838860812 (bytes) <p>
+[Offload] [MIC 0] [File]                    ../src/multiply.c 
+[Offload] [MIC 0] [Line]                    299 
+[Offload] [MIC 0] [Tag]                     Tag 2 
+[Offload] [HOST]  [Tag 2] [CPU Time]        0.082984(seconds) 
+[Offload] [MIC 0] [Tag 2] [CPU->MIC Data]   56 (bytes) 
+[Offload] [MIC 0] [Tag 2] [MIC Time]        0.000060(seconds) 
+[Offload] [MIC 0] [Tag 2] [MIC->CPU Data]   838860812 (bytes) 
 
 Freq = 3.582878 GHz <p>
 Execution time = 37.925 seconds <p>
@@ -290,6 +279,47 @@ sys     0m1.665s <p>
 
 # 6. Thread League
 
+First example
+```
+time ./matrix.icc
+```
+
+Offload Report and Results:
+```
+Using multiply kernel: multiply6 <p>
+[Offload] [MIC 0] [File]                    ../src/multiply.c <p>
+[Offload] [MIC 0] [Line]                    264 <p>
+[Offload] [MIC 0] [Tag]                     Tag 0 <p>
+[Offload] [HOST]  [Tag 0] [CPU Time]        5.436198(seconds) <p>
+[Offload] [MIC 0] [Tag 0] [CPU->MIC Data]   2516582436 (bytes) <p>
+[Offload] [MIC 0] [Tag 0] [MIC Time]        0.000143(seconds) <p>
+[Offload] [MIC 0] [Tag 0] [MIC->CPU Data]   0 (bytes) <p>
+
+[Offload] [MIC 0] [File]                    ../src/multiply.c <p>
+[Offload] [MIC 0] [Line]                    266 <p>
+[Offload] [MIC 0] [Tag]                     Tag 1 <p>
+[Offload] [HOST]  [Tag 1] [CPU Time]        47.980882(seconds) <p>
+[Offload] [MIC 0] [Tag 1] [CPU->MIC Data]   44 (bytes) <p>
+[Offload] [MIC 0] [Tag 1] [MIC Time]        69.405908(seconds) <p>
+[Offload] [MIC 0] [Tag 1] [MIC->CPU Data]   12 (bytes) <p>
+
+[Offload] [MIC 0] [File]                    ../src/multiply.c <p>
+[Offload] [MIC 0] [Line]                    276 <p>
+[Offload] [MIC 0] [Tag]                     Tag 2 <p>
+[Offload] [HOST]  [Tag 2] [CPU Time]        0.243274(seconds) <p> 
+[Offload] [MIC 0] [Tag 2] [CPU->MIC Data]   56 (bytes) <p>
+[Offload] [MIC 0] [Tag 2] [MIC Time]        0.000054(seconds) <p>
+[Offload] [MIC 0] [Tag 2] [MIC->CPU Data]   2516582412 (bytes) <p>
+
+Freq = 3.566257 GHz <p>
+Execution time = 54.168 seconds <p>
+
+real    1m33.892s <p>
+user    1m15.744s <p>
+sys     0m1.846s <p>
+```
+
+Second example
 ```
 time ./matrix.icc
 ```
