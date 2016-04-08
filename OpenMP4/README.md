@@ -54,6 +54,8 @@ micnativeloadex ./OMP-hello.mic -e "LD_LIBRARY_PATH=/opt/intel/lib/mic/"
 
 # 2. Vectorization
 
+Examples using vectorization pragmas.
+
 # SIMD (Matrix Multiplication)
 
 Running Matrix Multiplication Example without #pragma omp simd
@@ -77,9 +79,9 @@ Using multiply kernel: multiply3 <p>
 Freq = 1.998753 GHz <p>
 Execution time = 64.138 seconds <p>
 
-real    1m5.096s <p>
-user    33m24.241s <p>
-sys     0m4.421s <p>
+real    1m5.096s 
+user    33m24.241s 
+sys     0m4.421s 
 ```
 
 Running Matrix Multiplication Example with #pragma omp simd
@@ -110,28 +112,38 @@ sys     0m3.596s <p>
 
 # Simd function (Interpolation)
 
+Running Interpolation without vectorized functions
+
 ```
 make clean
 make OMP=no
 time ./main
+```
+
+Results:
+
 ```
 Test completed in 1053563 nsec <p>
 
 real    0m21.074s <p>
 user    0m21.059s <p>
 sys     0m0.004s <p>
+```
+Running Interpolation without vectorized functions
 
 ```
 make clean
 make OMP=yes
 time ./main
 ```
-
+Results:
+```
 Test completed in 342512 nsec <p>
 
 real    0m6.853s <p>
 user    0m6.849s <p>
 sys     0m0.001s <p>
+```
 
 # Thread and Simd
 
@@ -141,6 +153,9 @@ time ./matrixompforsimd
 ```
 
 # 3. Offload
+
+Examples using offload pragmas.
+
 ## target
 
 multiply5 - execute matrix multiplication on Xeon Card.
@@ -160,28 +175,34 @@ export MIC_KMP_AFFINITY=scatter
 export OFFLOAD_REPORT=2
 ./matrix.icc
 ```
+Offload Report and Results:
 
+```
 Matrix size: 10240 <p>
 Using multiply kernel: multiply5 <p>
-[Offload] [MIC 0] [File]                    ../src/multiply.c <p>
-[Offload] [MIC 0] [Line]                    243 <p>
-[Offload] [MIC 0] [Tag]                     Tag 0 <p>
-[Offload] [HOST]  [Tag 0] [CPU Time]        37.847054(seconds) <p>
-[Offload] [MIC 0] [Tag 0] [CPU->MIC Data]   2516582428 (bytes) <p>
-[Offload] [MIC 0] [Tag 0] [MIC Time]        46.479576(seconds) <p>
-[Offload] [MIC 0] [Tag 0] [MIC->CPU Data]   2516582404 (bytes) <p>
+[Offload] [MIC 0] [File]                    ../src/multiply.c 
+[Offload] [MIC 0] [Line]                    243 
+[Offload] [MIC 0] [Tag]                     Tag 0 
+[Offload] [HOST]  [Tag 0] [CPU Time]        37.847054(seconds) 
+[Offload] [MIC 0] [Tag 0] [CPU->MIC Data]   2516582428 (bytes) 
+[Offload] [MIC 0] [Tag 0] [MIC Time]        46.479576(seconds) 
+[Offload] [MIC 0] [Tag 0] [MIC->CPU Data]   2516582404 (bytes) 
 
-Freq = 3.588089 GHz <p>
-Execution time = 37.973 seconds <p>
+Freq = 3.588089 GHz 
+Execution time = 37.973 seconds 
 
-real    1m9.208s <p>
-user    0m51.274s <p>
-sys     0m1.915s <p>
+real    1m9.208s 
+user    0m51.274s
+sys     0m1.915s 
+```
 
 # 4. Target Data
 
 ```
 time ./matrix.icc
+```
+Offload Report and Results:
+
 ```
 Using multiply kernel: multiply7 <p>
 [Offload] [MIC 0] [File]                    ../src/multiply.c <p>
@@ -214,14 +235,17 @@ Execution time = 37.925 seconds <p>
 real    1m8.707s <p>
 user    0m50.756s <p>
 sys     0m1.591s <p>
+```
 
 # 5. Target Update
+
 target update
 
 ```
 time ./matrix.icc
 ```
-
+Offload Report and Results:
+```
 Matrix size: 10240 <p>
 Using multiply kernel: multiply8 <p>
 [Offload] [MIC 0] [File]                    ../src/multiply.c <p>
@@ -262,6 +286,7 @@ Execution time = 36.299 seconds <p>
 real    1m6.286s <p>
 user    0m48.385s <p>
 sys     0m1.665s <p>
+```
 
 # 6. Thread League
 
@@ -269,6 +294,8 @@ sys     0m1.665s <p>
 time ./matrix.icc
 ```
 
+Offload Report and Results:
+```
 Using multiply kernel: multiply6 <p>
 [Offload] [MIC 0] [File]                    ../src/multiply.c <p>
 [Offload] [MIC 0] [Line]                    264 <p>
@@ -300,6 +327,7 @@ Execution time = 54.168 seconds <p>
 real    1m33.892s <p>
 user    1m15.744s <p>
 sys     0m1.846s <p>
+```
 
 # 7. N-Body
 
@@ -307,8 +335,15 @@ Execute N-body paralelized for Host
 ```
 time ./nbody-v0d
 ```
-
+Offload Report and Results:
+```
+ff
+```
 Execute N-body with load balacing between host and devices
 ```
 time ./nbody-v3d
+```
+Offload Report and Results:
+```
+ff
 ```
