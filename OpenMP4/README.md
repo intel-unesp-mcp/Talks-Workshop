@@ -5,6 +5,7 @@ Demonstrations <p>
 * OpenMP Sample Program
 * Vectorization
 * Offload
+* Target 
 * Target Data
 * Target Update
 * Thread League
@@ -156,7 +157,7 @@ time ./matrixompforsimd
 
 Examples using offload pragmas.
 
-## target
+# 4. target
 
 ```
 export MIC_OMP_NUM_THREADS=120
@@ -185,7 +186,7 @@ user    0m51.274s
 sys     0m1.915s 
 ```
 
-# 4. Target Data
+# 5. Target Data
 
 ```
 time ./matrix.icc
@@ -226,9 +227,7 @@ user    0m50.756s <p>
 sys     0m1.591s <p>
 ```
 
-# 5. Target Update
-
-target update
+# 6. Target Update
 
 ```
 time ./matrix.icc
@@ -284,7 +283,7 @@ First example
 time ./matrix.icc
 ```
 
-Offload Report and Results:
+Results:
 ```
 Using multiply kernel: multiply6 <p>
 [Offload] [MIC 0] [File]                    ../src/multiply.c <p>
@@ -324,7 +323,7 @@ Second example
 time ./matrix.icc
 ```
 
-Offload Report and Results:
+Results:
 ```
 Using multiply kernel: multiply6 <p>
 [Offload] [MIC 0] [File]                    ../src/multiply.c <p>
