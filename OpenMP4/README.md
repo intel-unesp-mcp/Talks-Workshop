@@ -5,8 +5,8 @@ Demonstrations <p>
 * OpenMP Sample Program
 * Vectorization
 * Offload
-* Target Data
-* Target Update
+** Target Data
+** Target Update
 * Thread League
 * N-Body
 
