@@ -148,8 +148,26 @@ sys     0m0.001s
 # Thread and Simd
 
 ```
-icc matrixompforsimd.c -o matrixompforsimd -fopenmp
-time ./matrixompforsimd
+cd matrix/linux/
+vim ../src/multiply.h
+change to multiply9 :  #define MULTIPLY multiply9
+make icc
+export OMP_NUM_THREADS=36 
+export KMP_AFFINITY=scatter
+time ./matrix.icc
+```
+
+Results:
+
+```
+Matrix size: 10240
+Using multiply kernel: multiply3
+Freq = 1.199953 GHz
+Execution time = 108.302 seconds
+
+real	1m5.260s
+user	33m5.603s
+sys	0m4.578s
 ```
 
 # 3. Offload
@@ -159,11 +177,15 @@ Examples using offload pragmas.
 # 4. target
 
 ```
-export MIC_OMP_NUM_THREADS=120
-export MIC_KMP_AFFINITY=scatter
-export OFFLOAD_REPORT=2
-./matrix.icc
+cd matrix/linux/
+vim ../src/multiply.h
+change to multiply5 :  #define MULTIPLY multiply5
+make icc
+export OMP_NUM_THREADS=36 
+export KMP_AFFINITY=scatter
+time ./matrix.icc
 ```
+
 Offload Report and Results:
 
 ```
@@ -188,8 +210,15 @@ sys     0m1.915s
 # 5. Target Data
 
 ```
+cd matrix/linux/
+vim ../src/multiply.h
+change to multiply7 :  #define MULTIPLY multiply7
+make icc
+export OMP_NUM_THREADS=36 
+export KMP_AFFINITY=scatter
 time ./matrix.icc
 ```
+
 Offload Report and Results:
 
 ```
@@ -229,8 +258,16 @@ sys     0m1.591s
 # 6. Target Update
 
 ```
+cd matrix/linux/
+vim ../src/multiply.h
+change to multiply4 :  #define MULTIPLY multiply4
+make icc
+export OMP_NUM_THREADS=36 
+export KMP_AFFINITY=scatter
 time ./matrix.icc
 ```
+
+
 Offload Report and Results:
 ```
 Matrix size: 10240 
