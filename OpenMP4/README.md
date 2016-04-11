@@ -64,7 +64,7 @@ Running Matrix Multiplication Example without #pragma omp simd
 ```
 cd matrix/linux/
 vim ../src/multiply.h
-change line 38 to: #define MULTIPLY multiply4
+change to multiply3 :  #define MULTIPLY multiply3
 make icc
 export OMP_NUM_THREADS=36 
 export KMP_AFFINITY=scatter
@@ -74,15 +74,14 @@ time ./matrix.icc
 Results:
 
 ```
-Threads #: 36 OpenMP threads 
-Matrix size: 10240 
-Using multiply kernel: multiply3 
-Freq = 1.998753 GHz 
-Execution time = 64.138 seconds 
+Matrix size: 10240
+Using multiply kernel: multiply3
+Freq = 1.199953 GHz
+Execution time = 108.302 seconds
 
-real    1m5.096s 
-user    33m24.241s 
-sys     0m4.421s 
+real	1m5.260s
+user	33m5.603s
+sys	0m4.578s
 ```
 
 Running Matrix Multiplication Example with #pragma omp simd
@@ -90,7 +89,7 @@ Running Matrix Multiplication Example with #pragma omp simd
 ```
 cd matrix/linux/
 vim ../src/multiply.h
-change line 38 to: #define MULTIPLY multiply5
+change to multiply4 :  #define MULTIPLY multiply4
 make icc
 export OMP_NUM_THREADS=36 
 export KMP_AFFINITY=scatter
@@ -100,15 +99,15 @@ time ./matrix.icc
 Results:
 
 ```
-Threads #: 36 OpenMP threads 
-Matrix size: 10240 
-Using multiply kernel: multiply3 
-Freq = 2.347527 GHz 
-Execution time = 46.375 seconds 
- 
-real    0m56.772s 
-user    28m19.769s 
-sys     0m3.596s 
+Threads #: 36 OpenMP threads
+Matrix size: 10240
+Using multiply kernel: multiply4
+Freq = 1.894894 GHz
+Execution time = 57.440 seconds
+
+real	0m55.969s
+user	28m16.808s
+sys	0m3.910s
 ```
 
 # Simd function (Interpolation)
