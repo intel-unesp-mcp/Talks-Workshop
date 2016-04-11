@@ -375,7 +375,17 @@ time ./nbody-v0d
 ```
 Offload Report and Results:
 ```
-ff
+Before to start:
+  Position of first particle is (68.0375,10.3722,92.6457)
+  Position of last particle is (-38.4714,-66.0263,50.164)
+At the end:
+  Position of first particle is (58.4124,18.315,85.2011)
+  Position of last particle is (-44.7462,-69.5117,54.9645)
+Time was 151.36s
+
+real	2m31.390s
+user	181m29.107s
+sys	0m1.429s
 ```
 Execute N-body with load balacing between host and devices
 ```
