@@ -175,7 +175,7 @@ sys	0m0.874s
 
 Examples using offload pragmas.
 
-# 4. target
+# 4. Target
 
 ```
 cd matrix/linux/
