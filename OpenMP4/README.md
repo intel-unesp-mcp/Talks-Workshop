@@ -319,84 +319,52 @@ sys	0m0.164s
 
 # 6. Thread League
 
-First example
-```
-time ./matrix.icc
-```
-
-Results:
-```
-Using multiply kernel: multiply6 
-[Offload] [MIC 0] [File]                    ../src/multiply.c 
-[Offload] [MIC 0] [Line]                    264 
-[Offload] [MIC 0] [Tag]                     Tag 0 
-[Offload] [HOST]  [Tag 0] [CPU Time]        5.436198(seconds) 
-[Offload] [MIC 0] [Tag 0] [CPU->MIC Data]   2516582436 (bytes) 
-[Offload] [MIC 0] [Tag 0] [MIC Time]        0.000143(seconds) 
-[Offload] [MIC 0] [Tag 0] [MIC->CPU Data]   0 (bytes) 
-
-[Offload] [MIC 0] [File]                    ../src/multiply.c 
-[Offload] [MIC 0] [Line]                    266 
-[Offload] [MIC 0] [Tag]                     Tag 1 
-[Offload] [HOST]  [Tag 1] [CPU Time]        47.980882(seconds) 
-[Offload] [MIC 0] [Tag 1] [CPU->MIC Data]   44 (bytes) 
-[Offload] [MIC 0] [Tag 1] [MIC Time]        69.405908(seconds) 
-[Offload] [MIC 0] [Tag 1] [MIC->CPU Data]   12 (bytes) 
-
-[Offload] [MIC 0] [File]                    ../src/multiply.c 
-[Offload] [MIC 0] [Line]                    276 
-[Offload] [MIC 0] [Tag]                     Tag 2 
-[Offload] [HOST]  [Tag 2] [CPU Time]        0.243274(seconds) 
-[Offload] [MIC 0] [Tag 2] [CPU->MIC Data]   56 (bytes) 
-[Offload] [MIC 0] [Tag 2] [MIC Time]        0.000054(seconds) 
-[Offload] [MIC 0] [Tag 2] [MIC->CPU Data]   2516582412 (bytes) 
-
-Freq = 3.566257 GHz 
-Execution time = 54.168 seconds 
-
-real    1m33.892s 
-user    1m15.744s 
-sys     0m1.846s 
-```
-
 Second example
 ```
+cd matrix/linux/
+vim ../src/multiply.h
+change to multiply6 :  #define MULTIPLY multiply6
+make icc
+export OMP_NUM_THREADS=36 
+export KMP_AFFINITY=scatter
 time ./matrix.icc
 ```
 
 Results:
 ```
-Using multiply kernel: multiply6 
-[Offload] [MIC 0] [File]                    ../src/multiply.c 
-[Offload] [MIC 0] [Line]                    264 
-[Offload] [MIC 0] [Tag]                     Tag 0 
-[Offload] [HOST]  [Tag 0] [CPU Time]        5.436198(seconds) 
-[Offload] [MIC 0] [Tag 0] [CPU->MIC Data]   2516582436 (bytes) 
-[Offload] [MIC 0] [Tag 0] [MIC Time]        0.000143(seconds) 
-[Offload] [MIC 0] [Tag 0] [MIC->CPU Data]   0 (bytes) 
+Threads #: 36 OpenMP threads
+Matrix size: 10240
+Using multiply kernel: multiply6
+[Offload] [MIC 0] [File]                    ../src/multiply.c
+[Offload] [MIC 0] [Line]                    278
+[Offload] [MIC 0] [Tag]                     Tag 0
+[Offload] [HOST]  [Tag 0] [CPU Time]        5.529319(seconds)
+[Offload] [MIC 0] [Tag 0] [CPU->MIC Data]   2516582436 (bytes)
+[Offload] [MIC 0] [Tag 0] [MIC Time]        0.000103(seconds)
+[Offload] [MIC 0] [Tag 0] [MIC->CPU Data]   0 (bytes)
 
-[Offload] [MIC 0] [File]                    ../src/multiply.c 
-[Offload] [MIC 0] [Line]                    266 
-[Offload] [MIC 0] [Tag]                     Tag 1 
-[Offload] [HOST]  [Tag 1] [CPU Time]        47.980882(seconds) 
-[Offload] [MIC 0] [Tag 1] [CPU->MIC Data]   44 (bytes) 
-[Offload] [MIC 0] [Tag 1] [MIC Time]        69.405908(seconds) 
-[Offload] [MIC 0] [Tag 1] [MIC->CPU Data]   12 (bytes) 
+[Offload] [MIC 0] [File]                    ../src/multiply.c
+[Offload] [MIC 0] [Line]                    280
+[Offload] [MIC 0] [Tag]                     Tag 1
+[Offload] [HOST]  [Tag 1] [CPU Time]        47.793024(seconds)
+[Offload] [MIC 0] [Tag 1] [CPU->MIC Data]   44 (bytes)
+[Offload] [MIC 0] [Tag 1] [MIC Time]        69.134064(seconds)
+[Offload] [MIC 0] [Tag 1] [MIC->CPU Data]   12 (bytes)
 
-[Offload] [MIC 0] [File]                    ../src/multiply.c 
-[Offload] [MIC 0] [Line]                    276 
-[Offload] [MIC 0] [Tag]                     Tag 2 
-[Offload] [HOST]  [Tag 2] [CPU Time]        0.243274(seconds) 
-[Offload] [MIC 0] [Tag 2] [CPU->MIC Data]   56 (bytes) 
-[Offload] [MIC 0] [Tag 2] [MIC Time]        0.000054(seconds) 
-[Offload] [MIC 0] [Tag 2] [MIC->CPU Data]   2516582412 (bytes) 
+[Offload] [MIC 0] [File]                    ../src/multiply.c
+[Offload] [MIC 0] [Line]                    290
+[Offload] [MIC 0] [Tag]                     Tag 2
+[Offload] [HOST]  [Tag 2] [CPU Time]        0.243337(seconds)
+[Offload] [MIC 0] [Tag 2] [CPU->MIC Data]   56 (bytes)
+[Offload] [MIC 0] [Tag 2] [MIC Time]        0.000056(seconds)
+[Offload] [MIC 0] [Tag 2] [MIC->CPU Data]   2516582412 (bytes)
 
-Freq = 3.566257 GHz 
-Execution time = 54.168 seconds 
+Freq = 3.591324 GHz
+Execution time = 53.695 seconds
 
-real    1m33.892s 
-user    1m15.744s 
-sys     0m1.846s 
+real	1m36.542s
+user	1m15.442s
+sys	0m2.129s
 ```
 
 # 7. N-Body
