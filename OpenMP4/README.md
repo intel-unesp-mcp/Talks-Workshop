@@ -9,7 +9,9 @@ Demonstrations <p>
 * Target Data
 * Target Update
 * Thread League
-* N-Body
+* N-Body 
+
+The examples are based on Matrix Multiplication Intel Vtune and lotsofcore book chapters.
 
 # 1. OpenMP Sample Program
 
