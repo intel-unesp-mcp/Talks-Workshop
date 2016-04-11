@@ -163,12 +163,12 @@ Results:
 Threads #: 36 OpenMP threads
 Matrix size: 10240
 Using multiply kernel: multiply10
-Freq = 1.996148 GHz
-Execution time = 0.118 seconds
+^[[6~Freq = 2.799980 GHz
+Execution time = 35.359 seconds
 
-real	0m6.512s
-user	0m3.639s
-sys	0m0.874s
+real	0m52.662s
+user	25m59.963s
+sys	0m2.288s
 ```
 
 # 3. Offload
@@ -313,11 +313,41 @@ Freq = 2.280953 GHz
 Execution time = 1.192 seconds
 
 real	0m11.658s
-user	0m0.400s
+      user	0m0.400s
 sys	0m0.164s
 ```
 
 # 6. Thread League
+
+First example
+```
+icc OMP4-teams.c -o OMP4-teams -fopenmp
+./OMP4-teams
+```
+
+Results:
+```
+i 0 n 20 idteam 0 idthread 0 teams 2
+ i 1 n 20 idteam 0 idthread 0 teams 2
+ i 2 n 20 idteam 0 idthread 0 teams 2
+ i 3 n 20 idteam 0 idthread 0 teams 2
+ i 4 n 20 idteam 0 idthread 1 teams 2
+ i 5 n 20 idteam 0 idthread 1 teams 2
+ i 6 n 20 idteam 0 idthread 1 teams 2
+ i 10 n 20 idteam 1 idthread 0 teams 2
+ i 11 n 20 idteam 1 idthread 0 teams 2
+ i 12 n 20 idteam 1 idthread 0 teams 2
+ i 13 n 20 idteam 1 idthread 0 teams 2
+ i 7 n 20 idteam 0 idthread 2 teams 2
+ i 8 n 20 idteam 0 idthread 2 teams 2
+ i 9 n 20 idteam 0 idthread 2 teams 2
+ i 14 n 20 idteam 1 idthread 1 teams 2
+ i 15 n 20 idteam 1 idthread 1 teams 2
+ i 16 n 20 idteam 1 idthread 1 teams 2
+ i 17 n 20 idteam 1 idthread 2 teams 2
+ i 18 n 20 idteam 1 idthread 2 teams 2
+ i 19 n 20 idteam 1 idthread 2 teams 2
+```
 
 Second example
 ```
