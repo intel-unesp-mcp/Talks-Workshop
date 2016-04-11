@@ -383,5 +383,15 @@ time ./nbody-v3d
 ```
 Offload Report and Results:
 ```
-ff
+Before to start:
+  Position of first particle is (68.0375,56.9286,-96.2513)
+  Position of last particle is (34.3678,50.164,96.6014)
+At the end:
+  Position of first particle is (77.4527,62.5269,-104.999)
+  Position of last particle is (39.1683,58.7158,86.7716)
+Time was 42.2567s
+
+real	0m50.338s
+user	45m35.095s
+sys	0m41.243s
 ```
