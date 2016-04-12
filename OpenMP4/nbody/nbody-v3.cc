@@ -130,7 +130,8 @@ int main( int argc, char *argv[] ) {
     // Retrieving the number of devices available on the machine
     int dev = omp_get_num_devices();
 
-    const size_t n = 50000;
+    //const size_t n = 50000;
+    const size_t n = 150000;	
 
     // Computing the initial index displacements into the arrays for each device
     // For a start, each device and the host get an equal share of the work

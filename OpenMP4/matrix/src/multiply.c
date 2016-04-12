@@ -25,6 +25,20 @@
 #include "mkl.h"
 #endif //USE_MKL
 
+
+#pragma omp declare target
+
+  #pragma omp declare simd
+  float min(float a, float b) { 
+    return a < b ? a : b;
+  }
+
+  #pragma omp declare simd
+  float distsq(float x, float y) { 
+    return (x - y) * (x - y);
+  }
+#pragma omp end declare target
+
 #ifdef USE_THR
 void multiply0(int msize, int tidx, int numt, TYPE a[][NUM], TYPE b[][NUM], TYPE c[][NUM], TYPE t[][NUM])
 { 
@@ -324,10 +338,10 @@ void multiply8(int msize, int tidx, int numt, TYPE a[][NUM], TYPE b[][NUM], TYPE
 
 void multiply9(int msize, int tidx, int numt, TYPE a[][NUM], TYPE b[][NUM], TYPE c[][NUM], TYPE t[][NUM])
 {
-/*
-  #pragma omp target device(0) map(a[0:NUM][0:NUM]) \
-  map(b[0:NUM][0:NUM]) map(c[0:NUM][0:NUM])
-  {
+
+//  #pragma omp target device(0) map(a[0:NUM][0:NUM]) \
+  //map(b[0:NUM][0:NUM]) map(c[0:NUM][0:NUM])
+  //{
 
     int i, j, repetitions, contrep, auxrand;
 
@@ -339,7 +353,7 @@ void multiply9(int msize, int tidx, int numt, TYPE a[][NUM], TYPE b[][NUM], TYPE
       auxrand=rand();
 
       //#pragma omp parallel for collapse (2) //num_threads(60)
-      #pragma omp parallel for simd collapse (2) 
+      #pragma omp parallel for simd //collapse (2) 
       for(i=0; i<msize; i++) {
         for(j=0; j<msize; j++) {
           a[i][j] = distsq(a[i][j], b[i][j])-auxrand;
@@ -348,8 +362,39 @@ void multiply9(int msize, int tidx, int numt, TYPE a[][NUM], TYPE b[][NUM], TYPE
         }
       }
     }
-  }*/
+  //}
 }
+
+
+void multiply10(int msize, int tidx, int numt, TYPE a[][NUM], TYPE b[][NUM], TYPE c[][NUM], TYPE t[][NUM])
+{
+
+//  #pragma omp target device(0) map(a[0:NUM][0:NUM]) \
+//  map(b[0:NUM][0:NUM]) map(c[0:NUM][0:NUM])
+  //{
+
+    int i, j, repetitions, contrep, auxrand;
+
+    repetitions=1000000;
+    contrep=0;
+    auxrand=0;
+
+    for(contrep=0; contrep<repetitions; contrep++) {
+      auxrand=rand();
+      j=0;
+      //#pragma omp parallel for //collapse (2) //num_threads(60)
+      #pragma omp parallel for simd //collapse(2)
+      for(i=0; i<msize; i++) {
+        //for(j=0; j<msize; j++) {
+          a[i][j] = distsq(a[i][j], b[i][j])-auxrand;
+          b[i][j] += min(a[i][j], b[i][j])+auxrand;
+          c[i][j] = (min(distsq(a[i][j], b[i][j]), a[i][j]))/auxrand;
+        //}
+      }
+    }
+  //}
+}
+
 
 /*
 void multiply5(int msize, int tidx, int numt, TYPE a[][NUM], TYPE b[][NUM], TYPE c[][NUM], TYPE t[][NUM])
