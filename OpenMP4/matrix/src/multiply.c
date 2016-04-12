@@ -225,7 +225,6 @@ void multiply3(int msize, int tidx, int numt, TYPE a[][NUM], TYPE b[][NUM], TYPE
 	#pragma omp parallel for collapse (2) //num_threads(60)
 	for(i=0; i<msize; i++) {
 		for(k=0; k<msize; k++) {
-			//#pragma omp simd 
 			for(j=0; j<msize; j++) {
 				c[i][j] = c[i][j] + a[i][k] * b[k][j];
 			}
