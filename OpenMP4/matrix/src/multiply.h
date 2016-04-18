@@ -37,7 +37,7 @@ typedef TYPE array[NUM];
 
 // Select which multiply kernel to use via the following macro so that the
 // kernel being used can be reported when the test is run.
-#define MULTIPLY multiply4
+#define MULTIPLY multiply5
 /*
 #pragma omp declare target
 

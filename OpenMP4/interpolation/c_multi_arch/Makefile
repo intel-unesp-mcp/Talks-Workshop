@@ -5,6 +5,7 @@
 include ../common/Makefile.inc
 
 SRCFILES:=$(notdir $(wildcard ./*.c ))
+#SRCFILES:=main2.c #$(notdir $(wildcard ./*.c ))
 OBJS:=#../common/get_time.o
 OBJS+=$(subst .c,.o,$(SRCFILES))
 
