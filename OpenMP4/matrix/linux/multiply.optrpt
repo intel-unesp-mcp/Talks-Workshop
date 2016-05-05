@@ -31,7 +31,7 @@ Begin optimization report for: distsq..xM4vv(float, float)
 remark #15301: FUNCTION WAS VECTORIZED   [ ../src/multiply.c(37,34) ]
 ===========================================================================
 
-Begin optimization report for: multiply0(int, int, int, TYPE (*)[10240], TYPE (*)[10240], TYPE (*)[10240], TYPE (*)[10240])
+Begin optimization report for: multiply0(int, int, int, TYPE (*)[512], TYPE (*)[512], TYPE (*)[512], TYPE (*)[512])
 
     Report from: Vector optimizations [vec]
 
@@ -56,7 +56,7 @@ LOOP BEGIN at ../src/multiply.c(179,5)
 LOOP END
 ===========================================================================
 
-Begin optimization report for: multiply1(int, int, int, TYPE (*)[10240], TYPE (*)[10240], TYPE (*)[10240], TYPE (*)[10240])
+Begin optimization report for: multiply1(int, int, int, TYPE (*)[512], TYPE (*)[512], TYPE (*)[512], TYPE (*)[512])
 
     Report from: Vector optimizations [vec]
 
@@ -75,12 +75,16 @@ LOOP END
 
 LOOP BEGIN at ../src/multiply.c(194,5)
 <Distributed chunk1>
-   remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   remark #15301: PARTIAL LOOP WAS VECTORIZED
    remark #15475: --- begin vector loop cost summary ---
    remark #15476: scalar loop cost: 3 
-   remark #15477: vector loop cost: 2.750 
-   remark #15478: estimated potential speedup: 1.080 
+   remark #15477: vector loop cost: 1.370 
+   remark #15478: estimated potential speedup: 2.130 
    remark #15488: --- end vector loop cost summary ---
+LOOP END
+
+LOOP BEGIN at ../src/multiply.c(194,5)
+<Remainder loop for vectorization, Distributed chunk1>
 LOOP END
 
 LOOP BEGIN at ../src/multiply.c(194,5)
@@ -105,7 +109,7 @@ LOOP BEGIN at ../src/multiply.c(194,5)
 LOOP END
 ===========================================================================
 
-Begin optimization report for: multiply2(int, int, int, TYPE (*)[10240], TYPE (*)[10240], TYPE (*)[10240], TYPE (*)[10240])
+Begin optimization report for: multiply2(int, int, int, TYPE (*)[512], TYPE (*)[512], TYPE (*)[512], TYPE (*)[512])
 
     Report from: Vector optimizations [vec]
 
@@ -125,230 +129,185 @@ LOOP BEGIN at ../src/multiply.c(209,5)
 LOOP END
 ===========================================================================
 
-Begin optimization report for: multiply3(int, int, int, TYPE (*)[10240], TYPE (*)[10240], TYPE (*)[10240], TYPE (*)[10240])
+Begin optimization report for: multiply3(int, int, int, TYPE (*)[512], TYPE (*)[512], TYPE (*)[512], TYPE (*)[512])
 
     Report from: Vector optimizations [vec]
 
 
 LOOP BEGIN at ../src/multiply.c(226,2)
    remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
-   remark #15346: vector dependence: assumed OUTPUT dependence between c line 230 and c line 230
+   remark #15346: vector dependence: assumed OUTPUT dependence between c line 229 and c line 229
 
-   LOOP BEGIN at ../src/multiply.c(229,4)
+   LOOP BEGIN at ../src/multiply.c(228,4)
       remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
-      remark #15346: vector dependence: assumed FLOW dependence between c line 230 and a line 230
+      remark #15346: vector dependence: assumed FLOW dependence between c line 229 and a line 229
    LOOP END
 
-   LOOP BEGIN at ../src/multiply.c(229,4)
+   LOOP BEGIN at ../src/multiply.c(228,4)
    <Remainder>
    LOOP END
 LOOP END
 ===========================================================================
 
-Begin optimization report for: multiply4(int, int, int, TYPE (*)[10240], TYPE (*)[10240], TYPE (*)[10240], TYPE (*)[10240])
+Begin optimization report for: multiply4(int, int, int, TYPE (*)[512], TYPE (*)[512], TYPE (*)[512], TYPE (*)[512])
 
     Report from: Vector optimizations [vec]
 
 
-LOOP BEGIN at ../src/multiply.c(243,3)
+LOOP BEGIN at ../src/multiply.c(242,3)
    remark #15542: loop was not vectorized: inner loop was already vectorized
 
-   LOOP BEGIN at ../src/multiply.c(246,7)
-   <Peeled loop for vectorization>
-   LOOP END
-
-   LOOP BEGIN at ../src/multiply.c(246,7)
+   LOOP BEGIN at ../src/multiply.c(245,7)
       remark #15301: OpenMP SIMD LOOP WAS VECTORIZED
-      remark #15442: entire loop may be executed in remainder
-      remark #15448: unmasked aligned unit stride loads: 2 
-      remark #15449: unmasked aligned unit stride stores: 1 
+      remark #15450: unmasked unaligned unit stride loads: 2 
+      remark #15451: unmasked unaligned unit stride stores: 1 
       remark #15475: --- begin vector loop cost summary ---
       remark #15476: scalar loop cost: 9 
-      remark #15477: vector loop cost: 4.000 
-      remark #15478: estimated potential speedup: 1.850 
+      remark #15477: vector loop cost: 2.750 
+      remark #15478: estimated potential speedup: 2.610 
       remark #15488: --- end vector loop cost summary ---
    LOOP END
 
-   LOOP BEGIN at ../src/multiply.c(246,7)
-   <Alternate Alignment Vectorized Loop>
-   LOOP END
-
-   LOOP BEGIN at ../src/multiply.c(246,7)
+   LOOP BEGIN at ../src/multiply.c(245,7)
    <Remainder loop for vectorization>
       remark #15335: remainder loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
    LOOP END
 LOOP END
 ===========================================================================
 
-Begin optimization report for: multiply5(int, int, int, TYPE (*)[10240], TYPE (*)[10240], TYPE (*)[10240], TYPE (*)[10240])
+Begin optimization report for: multiply5(int, int, int, TYPE (*)[512], TYPE (*)[512], TYPE (*)[512], TYPE (*)[512])
 
     Report from: Vector optimizations [vec]
 
 
-LOOP BEGIN at ../src/multiply.c(261,5)
+LOOP BEGIN at ../src/multiply.c(260,5)
    remark #15542: loop was not vectorized: inner loop was already vectorized
 
-   LOOP BEGIN at ../src/multiply.c(264,9)
-   <Peeled loop for vectorization>
-   LOOP END
-
-   LOOP BEGIN at ../src/multiply.c(264,9)
+   LOOP BEGIN at ../src/multiply.c(263,9)
       remark #15301: OpenMP SIMD LOOP WAS VECTORIZED
-      remark #15442: entire loop may be executed in remainder
-      remark #15448: unmasked aligned unit stride loads: 2 
-      remark #15449: unmasked aligned unit stride stores: 1 
+      remark #15450: unmasked unaligned unit stride loads: 2 
+      remark #15451: unmasked unaligned unit stride stores: 1 
       remark #15475: --- begin vector loop cost summary ---
       remark #15476: scalar loop cost: 9 
-      remark #15477: vector loop cost: 4.000 
-      remark #15478: estimated potential speedup: 1.850 
+      remark #15477: vector loop cost: 2.750 
+      remark #15478: estimated potential speedup: 2.610 
       remark #15488: --- end vector loop cost summary ---
    LOOP END
 
-   LOOP BEGIN at ../src/multiply.c(264,9)
-   <Alternate Alignment Vectorized Loop>
-   LOOP END
-
-   LOOP BEGIN at ../src/multiply.c(264,9)
+   LOOP BEGIN at ../src/multiply.c(263,9)
    <Remainder loop for vectorization>
       remark #15335: remainder loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
    LOOP END
 LOOP END
 ===========================================================================
 
-Begin optimization report for: multiply6(int, int, int, TYPE (*)[10240], TYPE (*)[10240], TYPE (*)[10240], TYPE (*)[10240])
+Begin optimization report for: multiply6(int, int, int, TYPE (*)[512], TYPE (*)[512], TYPE (*)[512], TYPE (*)[512])
 
     Report from: Vector optimizations [vec]
 
 
-LOOP BEGIN at ../src/multiply.c(282,5)
+LOOP BEGIN at ../src/multiply.c(281,5)
    remark #15542: loop was not vectorized: inner loop was already vectorized
 
-   LOOP BEGIN at ../src/multiply.c(285,9)
-   <Peeled loop for vectorization>
-   LOOP END
-
-   LOOP BEGIN at ../src/multiply.c(285,9)
+   LOOP BEGIN at ../src/multiply.c(284,9)
       remark #15301: OpenMP SIMD LOOP WAS VECTORIZED
-      remark #15442: entire loop may be executed in remainder
-      remark #15448: unmasked aligned unit stride loads: 2 
-      remark #15449: unmasked aligned unit stride stores: 1 
+      remark #15450: unmasked unaligned unit stride loads: 2 
+      remark #15451: unmasked unaligned unit stride stores: 1 
       remark #15475: --- begin vector loop cost summary ---
       remark #15476: scalar loop cost: 9 
-      remark #15477: vector loop cost: 4.000 
-      remark #15478: estimated potential speedup: 1.850 
+      remark #15477: vector loop cost: 2.750 
+      remark #15478: estimated potential speedup: 2.610 
       remark #15488: --- end vector loop cost summary ---
    LOOP END
 
-   LOOP BEGIN at ../src/multiply.c(285,9)
-   <Alternate Alignment Vectorized Loop>
-   LOOP END
-
-   LOOP BEGIN at ../src/multiply.c(285,9)
+   LOOP BEGIN at ../src/multiply.c(284,9)
    <Remainder loop for vectorization>
       remark #15335: remainder loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
    LOOP END
 LOOP END
 ===========================================================================
 
-Begin optimization report for: multiply7(int, int, int, TYPE (*)[10240], TYPE (*)[10240], TYPE (*)[10240], TYPE (*)[10240])
+Begin optimization report for: multiply7(int, int, int, TYPE (*)[512], TYPE (*)[512], TYPE (*)[512], TYPE (*)[512])
 
     Report from: Vector optimizations [vec]
 
 
-LOOP BEGIN at ../src/multiply.c(303,7)
+LOOP BEGIN at ../src/multiply.c(302,7)
    remark #15542: loop was not vectorized: inner loop was already vectorized
 
-   LOOP BEGIN at ../src/multiply.c(306,11)
-   <Peeled loop for vectorization>
-   LOOP END
-
-   LOOP BEGIN at ../src/multiply.c(306,11)
+   LOOP BEGIN at ../src/multiply.c(305,11)
       remark #15301: OpenMP SIMD LOOP WAS VECTORIZED
-      remark #15442: entire loop may be executed in remainder
-      remark #15448: unmasked aligned unit stride loads: 2 
-      remark #15449: unmasked aligned unit stride stores: 1 
+      remark #15450: unmasked unaligned unit stride loads: 2 
+      remark #15451: unmasked unaligned unit stride stores: 1 
       remark #15475: --- begin vector loop cost summary ---
       remark #15476: scalar loop cost: 9 
-      remark #15477: vector loop cost: 4.000 
-      remark #15478: estimated potential speedup: 1.850 
+      remark #15477: vector loop cost: 2.750 
+      remark #15478: estimated potential speedup: 2.610 
       remark #15488: --- end vector loop cost summary ---
    LOOP END
 
-   LOOP BEGIN at ../src/multiply.c(306,11)
-   <Alternate Alignment Vectorized Loop>
-   LOOP END
-
-   LOOP BEGIN at ../src/multiply.c(306,11)
+   LOOP BEGIN at ../src/multiply.c(305,11)
    <Remainder loop for vectorization>
       remark #15335: remainder loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
    LOOP END
 LOOP END
 ===========================================================================
 
-Begin optimization report for: multiply8(int, int, int, TYPE (*)[10240], TYPE (*)[10240], TYPE (*)[10240], TYPE (*)[10240])
+Begin optimization report for: multiply8(int, int, int, TYPE (*)[512], TYPE (*)[512], TYPE (*)[512], TYPE (*)[512])
 
     Report from: Vector optimizations [vec]
 
 
-LOOP BEGIN at ../src/multiply.c(326,7)
+LOOP BEGIN at ../src/multiply.c(325,7)
    remark #15542: loop was not vectorized: inner loop was already vectorized
 
-   LOOP BEGIN at ../src/multiply.c(329,11)
-   <Peeled loop for vectorization>
-   LOOP END
-
-   LOOP BEGIN at ../src/multiply.c(329,11)
+   LOOP BEGIN at ../src/multiply.c(328,11)
       remark #15301: OpenMP SIMD LOOP WAS VECTORIZED
-      remark #15442: entire loop may be executed in remainder
-      remark #15448: unmasked aligned unit stride loads: 2 
-      remark #15449: unmasked aligned unit stride stores: 1 
+      remark #15450: unmasked unaligned unit stride loads: 2 
+      remark #15451: unmasked unaligned unit stride stores: 1 
       remark #15475: --- begin vector loop cost summary ---
       remark #15476: scalar loop cost: 9 
-      remark #15477: vector loop cost: 4.000 
-      remark #15478: estimated potential speedup: 1.850 
+      remark #15477: vector loop cost: 2.750 
+      remark #15478: estimated potential speedup: 2.610 
       remark #15488: --- end vector loop cost summary ---
    LOOP END
 
-   LOOP BEGIN at ../src/multiply.c(329,11)
-   <Alternate Alignment Vectorized Loop>
-   LOOP END
-
-   LOOP BEGIN at ../src/multiply.c(329,11)
+   LOOP BEGIN at ../src/multiply.c(328,11)
    <Remainder loop for vectorization>
       remark #15335: remainder loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
    LOOP END
 LOOP END
 ===========================================================================
 
-Begin optimization report for: multiply9(int, int, int, TYPE (*)[10240], TYPE (*)[10240], TYPE (*)[10240], TYPE (*)[10240])
+Begin optimization report for: multiply9(int, int, int, TYPE (*)[512], TYPE (*)[512], TYPE (*)[512], TYPE (*)[512])
 
     Report from: Vector optimizations [vec]
 
 
-LOOP BEGIN at ../src/multiply.c(352,5)
+LOOP BEGIN at ../src/multiply.c(351,5)
    remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
-   remark #15346: vector dependence: assumed OUTPUT dependence between call:rand(void) line 353 and call:__kmpc_end_serialized_paral line 356
+   remark #15346: vector dependence: assumed OUTPUT dependence between call:rand(void) line 352 and call:__kmpc_end_serialized_paral line 355
 LOOP END
 
-LOOP BEGIN at ../src/multiply.c(357,7)
-   remark #15336: simd loop was not vectorized: conditional assignment to a scalar   [ ../src/multiply.c(358,27) ]
+LOOP BEGIN at ../src/multiply.c(356,7)
+   remark #15336: simd loop was not vectorized: conditional assignment to a scalar   [ ../src/multiply.c(357,27) ]
    remark #13379: loop was not vectorized with "simd"
 
-   LOOP BEGIN at ../src/multiply.c(358,9)
+   LOOP BEGIN at ../src/multiply.c(357,9)
       remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
-      remark #15346: vector dependence: assumed OUTPUT dependence between a line 359 and c line 361
+      remark #15346: vector dependence: assumed OUTPUT dependence between a line 358 and c line 360
    LOOP END
 LOOP END
 ===========================================================================
 
-Begin optimization report for: multiply10(int, int, int, TYPE (*)[10240], TYPE (*)[10240], TYPE (*)[10240], TYPE (*)[10240])
+Begin optimization report for: multiply10(int, int, int, TYPE (*)[512], TYPE (*)[512], TYPE (*)[512], TYPE (*)[512])
 
     Report from: Vector optimizations [vec]
 
 
-LOOP BEGIN at ../src/multiply.c(382,5)
+LOOP BEGIN at ../src/multiply.c(381,5)
    remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
-   remark #15346: vector dependence: assumed OUTPUT dependence between call:rand(void) line 383 and call:__kmpc_end_serialized_paral line 386
+   remark #15346: vector dependence: assumed OUTPUT dependence between call:rand(void) line 382 and call:__kmpc_end_serialized_paral line 386
 LOOP END
 
 LOOP BEGIN at ../src/multiply.c(387,7)
@@ -357,14 +316,15 @@ LOOP BEGIN at ../src/multiply.c(387,7)
    remark #15462: unmasked indexed (or gather) loads: 3 
    remark #15475: --- begin vector loop cost summary ---
    remark #15476: scalar loop cost: 88 
-   remark #15477: vector loop cost: 72.500 
-   remark #15478: estimated potential speedup: 1.210 
+   remark #15477: vector loop cost: 51.250 
+   remark #15478: estimated potential speedup: 1.700 
    remark #15487: type converts: 14 
    remark #15488: --- end vector loop cost summary ---
 LOOP END
 
 LOOP BEGIN at ../src/multiply.c(387,7)
 <Remainder loop for vectorization>
+   remark #15335: remainder loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
 LOOP END
 ===========================================================================
 Intel(R) Advisor can now assist with vectorization and show optimization
@@ -400,7 +360,7 @@ remark #15301: FUNCTION WAS VECTORIZED   [ ../src/multiply.c(37,34) ]
 remark #15301: FUNCTION WAS VECTORIZED   [ ../src/multiply.c(37,34) ]
 ===========================================================================
 
-*MIC* Begin optimization report for: multiply0(int, int, int, TYPE (*)[10240], TYPE (*)[10240], TYPE (*)[10240], TYPE (*)[10240])
+*MIC* Begin optimization report for: multiply0(int, int, int, TYPE (*)[1024], TYPE (*)[1024], TYPE (*)[1024], TYPE (*)[1024])
 
     Report from: Vector optimizations [vec]
 
@@ -425,7 +385,7 @@ LOOP BEGIN at ../src/multiply.c(179,5)
 LOOP END
 ===========================================================================
 
-*MIC* Begin optimization report for: multiply1(int, int, int, TYPE (*)[10240], TYPE (*)[10240], TYPE (*)[10240], TYPE (*)[10240])
+*MIC* Begin optimization report for: multiply1(int, int, int, TYPE (*)[1024], TYPE (*)[1024], TYPE (*)[1024], TYPE (*)[1024])
 
     Report from: Vector optimizations [vec]
 
@@ -479,7 +439,7 @@ LOOP BEGIN at ../src/multiply.c(194,5)
 LOOP END
 ===========================================================================
 
-*MIC* Begin optimization report for: multiply2(int, int, int, TYPE (*)[10240], TYPE (*)[10240], TYPE (*)[10240], TYPE (*)[10240])
+*MIC* Begin optimization report for: multiply2(int, int, int, TYPE (*)[1024], TYPE (*)[1024], TYPE (*)[1024], TYPE (*)[1024])
 
     Report from: Vector optimizations [vec]
 
@@ -499,40 +459,40 @@ LOOP BEGIN at ../src/multiply.c(209,5)
 LOOP END
 ===========================================================================
 
-*MIC* Begin optimization report for: multiply3(int, int, int, TYPE (*)[10240], TYPE (*)[10240], TYPE (*)[10240], TYPE (*)[10240])
+*MIC* Begin optimization report for: multiply3(int, int, int, TYPE (*)[1024], TYPE (*)[1024], TYPE (*)[1024], TYPE (*)[1024])
 
     Report from: Vector optimizations [vec]
 
 
 LOOP BEGIN at ../src/multiply.c(226,2)
    remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
-   remark #15346: vector dependence: assumed OUTPUT dependence between c line 230 and c line 230
+   remark #15346: vector dependence: assumed OUTPUT dependence between c line 229 and c line 229
 
-   LOOP BEGIN at ../src/multiply.c(229,4)
+   LOOP BEGIN at ../src/multiply.c(228,4)
       remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
-      remark #15346: vector dependence: assumed FLOW dependence between c line 230 and a line 230
+      remark #15346: vector dependence: assumed FLOW dependence between c line 229 and a line 229
    LOOP END
 
-   LOOP BEGIN at ../src/multiply.c(229,4)
+   LOOP BEGIN at ../src/multiply.c(228,4)
    <Remainder>
    LOOP END
 LOOP END
 ===========================================================================
 
-*MIC* Begin optimization report for: multiply4(int, int, int, TYPE (*)[10240], TYPE (*)[10240], TYPE (*)[10240], TYPE (*)[10240])
+*MIC* Begin optimization report for: multiply4(int, int, int, TYPE (*)[1024], TYPE (*)[1024], TYPE (*)[1024], TYPE (*)[1024])
 
     Report from: Vector optimizations [vec]
 
 
-LOOP BEGIN at ../src/multiply.c(243,3)
+LOOP BEGIN at ../src/multiply.c(242,3)
    remark #15542: loop was not vectorized: inner loop was already vectorized
 
-   LOOP BEGIN at ../src/multiply.c(246,7)
+   LOOP BEGIN at ../src/multiply.c(245,7)
    <Peeled loop for vectorization>
       remark #15301: PEEL LOOP WAS VECTORIZED
    LOOP END
 
-   LOOP BEGIN at ../src/multiply.c(246,7)
+   LOOP BEGIN at ../src/multiply.c(245,7)
       remark #15301: OpenMP SIMD LOOP WAS VECTORIZED
       remark #15475: --- begin vector loop cost summary ---
       remark #15476: scalar loop cost: 9 
@@ -541,31 +501,31 @@ LOOP BEGIN at ../src/multiply.c(243,3)
       remark #15488: --- end vector loop cost summary ---
    LOOP END
 
-   LOOP BEGIN at ../src/multiply.c(246,7)
+   LOOP BEGIN at ../src/multiply.c(245,7)
    <Alternate Alignment Vectorized Loop>
    LOOP END
 
-   LOOP BEGIN at ../src/multiply.c(246,7)
+   LOOP BEGIN at ../src/multiply.c(245,7)
    <Remainder loop for vectorization>
       remark #15301: REMAINDER LOOP WAS VECTORIZED
    LOOP END
 LOOP END
 ===========================================================================
 
-*MIC* Begin optimization report for: multiply5(int, int, int, TYPE (*)[10240], TYPE (*)[10240], TYPE (*)[10240], TYPE (*)[10240])
+*MIC* Begin optimization report for: multiply5(int, int, int, TYPE (*)[1024], TYPE (*)[1024], TYPE (*)[1024], TYPE (*)[1024])
 
     Report from: Vector optimizations [vec]
 
 
-LOOP BEGIN at ../src/multiply.c(261,5)
+LOOP BEGIN at ../src/multiply.c(260,5)
    remark #15542: loop was not vectorized: inner loop was already vectorized
 
-   LOOP BEGIN at ../src/multiply.c(264,9)
+   LOOP BEGIN at ../src/multiply.c(263,9)
    <Peeled loop for vectorization>
       remark #15301: PEEL LOOP WAS VECTORIZED
    LOOP END
 
-   LOOP BEGIN at ../src/multiply.c(264,9)
+   LOOP BEGIN at ../src/multiply.c(263,9)
       remark #15301: OpenMP SIMD LOOP WAS VECTORIZED
       remark #15475: --- begin vector loop cost summary ---
       remark #15476: scalar loop cost: 9 
@@ -574,31 +534,31 @@ LOOP BEGIN at ../src/multiply.c(261,5)
       remark #15488: --- end vector loop cost summary ---
    LOOP END
 
-   LOOP BEGIN at ../src/multiply.c(264,9)
+   LOOP BEGIN at ../src/multiply.c(263,9)
    <Alternate Alignment Vectorized Loop>
    LOOP END
 
-   LOOP BEGIN at ../src/multiply.c(264,9)
+   LOOP BEGIN at ../src/multiply.c(263,9)
    <Remainder loop for vectorization>
       remark #15301: REMAINDER LOOP WAS VECTORIZED
    LOOP END
 LOOP END
 ===========================================================================
 
-*MIC* Begin optimization report for: multiply6(int, int, int, TYPE (*)[10240], TYPE (*)[10240], TYPE (*)[10240], TYPE (*)[10240])
+*MIC* Begin optimization report for: multiply6(int, int, int, TYPE (*)[1024], TYPE (*)[1024], TYPE (*)[1024], TYPE (*)[1024])
 
     Report from: Vector optimizations [vec]
 
 
-LOOP BEGIN at ../src/multiply.c(282,5)
+LOOP BEGIN at ../src/multiply.c(281,5)
    remark #15542: loop was not vectorized: inner loop was already vectorized
 
-   LOOP BEGIN at ../src/multiply.c(285,9)
+   LOOP BEGIN at ../src/multiply.c(284,9)
    <Peeled loop for vectorization>
       remark #15301: PEEL LOOP WAS VECTORIZED
    LOOP END
 
-   LOOP BEGIN at ../src/multiply.c(285,9)
+   LOOP BEGIN at ../src/multiply.c(284,9)
       remark #15301: OpenMP SIMD LOOP WAS VECTORIZED
       remark #15475: --- begin vector loop cost summary ---
       remark #15476: scalar loop cost: 9 
@@ -607,31 +567,31 @@ LOOP BEGIN at ../src/multiply.c(282,5)
       remark #15488: --- end vector loop cost summary ---
    LOOP END
 
-   LOOP BEGIN at ../src/multiply.c(285,9)
+   LOOP BEGIN at ../src/multiply.c(284,9)
    <Alternate Alignment Vectorized Loop>
    LOOP END
 
-   LOOP BEGIN at ../src/multiply.c(285,9)
+   LOOP BEGIN at ../src/multiply.c(284,9)
    <Remainder loop for vectorization>
       remark #15301: REMAINDER LOOP WAS VECTORIZED
    LOOP END
 LOOP END
 ===========================================================================
 
-*MIC* Begin optimization report for: multiply7(int, int, int, TYPE (*)[10240], TYPE (*)[10240], TYPE (*)[10240], TYPE (*)[10240])
+*MIC* Begin optimization report for: multiply7(int, int, int, TYPE (*)[1024], TYPE (*)[1024], TYPE (*)[1024], TYPE (*)[1024])
 
     Report from: Vector optimizations [vec]
 
 
-LOOP BEGIN at ../src/multiply.c(303,7)
+LOOP BEGIN at ../src/multiply.c(302,7)
    remark #15542: loop was not vectorized: inner loop was already vectorized
 
-   LOOP BEGIN at ../src/multiply.c(306,11)
+   LOOP BEGIN at ../src/multiply.c(305,11)
    <Peeled loop for vectorization>
       remark #15301: PEEL LOOP WAS VECTORIZED
    LOOP END
 
-   LOOP BEGIN at ../src/multiply.c(306,11)
+   LOOP BEGIN at ../src/multiply.c(305,11)
       remark #15301: OpenMP SIMD LOOP WAS VECTORIZED
       remark #15475: --- begin vector loop cost summary ---
       remark #15476: scalar loop cost: 9 
@@ -640,31 +600,31 @@ LOOP BEGIN at ../src/multiply.c(303,7)
       remark #15488: --- end vector loop cost summary ---
    LOOP END
 
-   LOOP BEGIN at ../src/multiply.c(306,11)
+   LOOP BEGIN at ../src/multiply.c(305,11)
    <Alternate Alignment Vectorized Loop>
    LOOP END
 
-   LOOP BEGIN at ../src/multiply.c(306,11)
+   LOOP BEGIN at ../src/multiply.c(305,11)
    <Remainder loop for vectorization>
       remark #15301: REMAINDER LOOP WAS VECTORIZED
    LOOP END
 LOOP END
 ===========================================================================
 
-*MIC* Begin optimization report for: multiply8(int, int, int, TYPE (*)[10240], TYPE (*)[10240], TYPE (*)[10240], TYPE (*)[10240])
+*MIC* Begin optimization report for: multiply8(int, int, int, TYPE (*)[1024], TYPE (*)[1024], TYPE (*)[1024], TYPE (*)[1024])
 
     Report from: Vector optimizations [vec]
 
 
-LOOP BEGIN at ../src/multiply.c(326,7)
+LOOP BEGIN at ../src/multiply.c(325,7)
    remark #15542: loop was not vectorized: inner loop was already vectorized
 
-   LOOP BEGIN at ../src/multiply.c(329,11)
+   LOOP BEGIN at ../src/multiply.c(328,11)
    <Peeled loop for vectorization>
       remark #15301: PEEL LOOP WAS VECTORIZED
    LOOP END
 
-   LOOP BEGIN at ../src/multiply.c(329,11)
+   LOOP BEGIN at ../src/multiply.c(328,11)
       remark #15301: OpenMP SIMD LOOP WAS VECTORIZED
       remark #15475: --- begin vector loop cost summary ---
       remark #15476: scalar loop cost: 9 
@@ -673,46 +633,46 @@ LOOP BEGIN at ../src/multiply.c(326,7)
       remark #15488: --- end vector loop cost summary ---
    LOOP END
 
-   LOOP BEGIN at ../src/multiply.c(329,11)
+   LOOP BEGIN at ../src/multiply.c(328,11)
    <Alternate Alignment Vectorized Loop>
    LOOP END
 
-   LOOP BEGIN at ../src/multiply.c(329,11)
+   LOOP BEGIN at ../src/multiply.c(328,11)
    <Remainder loop for vectorization>
       remark #15301: REMAINDER LOOP WAS VECTORIZED
    LOOP END
 LOOP END
 ===========================================================================
 
-*MIC* Begin optimization report for: multiply9(int, int, int, TYPE (*)[10240], TYPE (*)[10240], TYPE (*)[10240], TYPE (*)[10240])
+*MIC* Begin optimization report for: multiply9(int, int, int, TYPE (*)[1024], TYPE (*)[1024], TYPE (*)[1024], TYPE (*)[1024])
 
     Report from: Vector optimizations [vec]
 
 
-LOOP BEGIN at ../src/multiply.c(352,5)
+LOOP BEGIN at ../src/multiply.c(351,5)
    remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
-   remark #15346: vector dependence: assumed OUTPUT dependence between call:rand line 353 and call:__kmpc_end_serialized_paral line 356
+   remark #15346: vector dependence: assumed OUTPUT dependence between call:rand line 352 and call:__kmpc_end_serialized_paral line 355
 LOOP END
 
-LOOP BEGIN at ../src/multiply.c(357,7)
-   remark #15336: simd loop was not vectorized: conditional assignment to a scalar   [ ../src/multiply.c(358,27) ]
+LOOP BEGIN at ../src/multiply.c(356,7)
+   remark #15336: simd loop was not vectorized: conditional assignment to a scalar   [ ../src/multiply.c(357,27) ]
    remark #13379: loop was not vectorized with "simd"
 
-   LOOP BEGIN at ../src/multiply.c(358,9)
+   LOOP BEGIN at ../src/multiply.c(357,9)
       remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
-      remark #15346: vector dependence: assumed OUTPUT dependence between a line 359 and c line 361
+      remark #15346: vector dependence: assumed OUTPUT dependence between a line 358 and c line 360
    LOOP END
 LOOP END
 ===========================================================================
 
-*MIC* Begin optimization report for: multiply10(int, int, int, TYPE (*)[10240], TYPE (*)[10240], TYPE (*)[10240], TYPE (*)[10240])
+*MIC* Begin optimization report for: multiply10(int, int, int, TYPE (*)[1024], TYPE (*)[1024], TYPE (*)[1024], TYPE (*)[1024])
 
     Report from: Vector optimizations [vec]
 
 
-LOOP BEGIN at ../src/multiply.c(382,5)
+LOOP BEGIN at ../src/multiply.c(381,5)
    remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
-   remark #15346: vector dependence: assumed OUTPUT dependence between call:rand line 383 and call:__kmpc_end_serialized_paral line 386
+   remark #15346: vector dependence: assumed OUTPUT dependence between call:rand line 382 and call:__kmpc_end_serialized_paral line 386
 LOOP END
 
 LOOP BEGIN at ../src/multiply.c(387,7)

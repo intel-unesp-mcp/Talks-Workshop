@@ -382,6 +382,7 @@ void multiply10(int msize, int tidx, int numt, TYPE a[][NUM], TYPE b[][NUM], TYP
       auxrand=rand();
       j=0;
       //#pragma omp parallel for //collapse (2) //num_threads(60)
+      //#pragma distribute_point
       #pragma omp parallel for simd //collapse(2)
       for(i=0; i<msize; i++) {
         //for(j=0; j<msize; j++) {

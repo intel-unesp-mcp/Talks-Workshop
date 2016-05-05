@@ -39,7 +39,47 @@
 
 #include <get_time.h>
 
-#include "interpolate.h"
+//#include "interpolate.h"
+
+extern const int steps;
+extern const int ARRAY_SIZE;
+
+typedef struct  {
+    double c0;
+    double c1;
+} point;
+
+#ifdef _OPENMP
+#ifndef __MIC__
+#pragma omp declare simd //uniform(vals) processor(core_4th_gen_avx)
+#pragma omp declare simd //uniform(vals) processor(core_i7_sse4_2)
+#else
+#pragma omp declare simd //uniform(vals)
+#endif
+#endif
+double Interpolate(double x, const point* vals);
+
+#ifdef _OPENMP
+#ifndef __MIC__
+#pragma omp declare simd simdlen(4) processor(core_4th_gen_avx)
+#pragma omp declare simd simdlen(2) processor(core_i7_sse4_2)
+#else
+#pragma omp declare simd simdlen(8)
+#endif
+#endif
+int FindPosition(double x) {
+	return (int)(log(exp(x*steps)));
+}
+
+double Interpolate(double x, const point* vals){
+    
+    int ind = FindPosition(x);
+    const point* pnt = &vals[ind];
+    double res = log(exp(pnt->c0*x+pnt->c1));
+
+    return res;    
+}
+
 
 const int steps = 512;
 const int ARRAY_SIZE = 20480;
@@ -80,9 +120,9 @@ int main(int argc, char* argv[])
 
     START_LOOP_TIME()
     /*Critical loop requires vectorization */   
-#ifdef _OPENMP
+ #ifdef _OPENMP
     #pragma omp simd
-#endif
+ #endif
     for(i=0; i<ARRAY_SIZE;++i) {
         dst[i] = Interpolate(src[i],vals);
     }

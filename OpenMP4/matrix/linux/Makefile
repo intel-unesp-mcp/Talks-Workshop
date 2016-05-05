@@ -40,13 +40,13 @@ PARAMODEL = -DUSE_OMP -fopenmp	# Use OpenMP for multithreading
 GCC     = gcc
 ICC     = icc
 CFLAGS  = -g -O3
-OPTFLAGS = -xSSE3 
-# OPTFLAGS = -xHost -fno-alias
+#OPTFLAGS = -xSSE3 
+OPTFLAGS = -xHost # -fno-alias
 # add -DALIGNED to the multiply.c and matrix.c
 LDFLAGS = -lpthread -lm
 
 GCFLAGS = $(CFLAGS) $(PARAMODEL)
-ICFLAGS = $(CFLAGS) $(PARAMODEL)-DICC -debug inline-debug-info -vec-report3 -qopt-report=3 -qopt-report-phase=vec -xhost
+ICFLAGS = $(CFLAGS) $(PARAMODEL)-DICC -debug inline-debug-info -vec-report3 -qopt-report=3 -qopt-report-phase=vec $(OPTFLAGS)
 MCFLAGS = $(CFLAGS) $(PARAMODEL)-DICC -debug inline-debug-info -vec-report3 -qopt-report=3 -qopt-report-phase=vec
 MKFLAGS = $(CFLAGS) -DUSE_MKL   -DICC -mkl -debug inline-debug-info
 
