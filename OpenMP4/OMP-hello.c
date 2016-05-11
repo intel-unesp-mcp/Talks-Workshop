@@ -9,9 +9,8 @@ int main() {
 	
     #pragma omp parallel
     {
-        //thid=omp_get_thread_num();
         gethostname(hn,600);
-        printf("hello from hostname %s\n",hn); //thid, hn);
+        printf("hello from hostname %s\n",hn);
     }
 
     res = 0;

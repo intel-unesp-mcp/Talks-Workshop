@@ -1,0 +1,269 @@
+Intel(R) Advisor can now assist with vectorization and show optimization
+  report messages with your source code.
+See "https://software.intel.com/en-us/intel-advisor-xe" for details.
+
+
+Begin optimization report for: vec1(float *, float *, int, int)
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at omp-func.c(4,3)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization
+   remark #15346: vector dependence: assumed ANTI dependence between b line 7 and a line 6
+   remark #15346: vector dependence: assumed FLOW dependence between a line 6 and b line 7
+LOOP END
+===========================================================================
+
+Begin optimization report for: vec2(float *, float *, int, int)
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at omp-func.c(16,3)
+<Peeled loop for vectorization>
+LOOP END
+
+LOOP BEGIN at omp-func.c(16,3)
+   remark #15389: vectorization support: reference a has unaligned access   [ omp-func.c(18,17) ]
+   remark #15389: vectorization support: reference b has unaligned access   [ omp-func.c(19,12) ]
+   remark #15389: vectorization support: reference a has unaligned access   [ omp-func.c(20,12) ]
+   remark #15389: vectorization support: reference b has unaligned access   [ omp-func.c(20,16) ]
+   remark #15389: vectorization support: reference a has unaligned access   [ omp-func.c(20,12) ]
+   remark #15389: vectorization support: reference a has unaligned access   [ omp-func.c(18,5) ]
+   remark #15381: vectorization support: unaligned access used inside loop body
+   remark #15305: vectorization support: vector length 4
+   remark #15309: vectorization support: normalized vectorization overhead 0.056
+   remark #15417: vectorization support: number of FP up converts: single precision to double precision 1   [ omp-func.c(18,17) ]
+   remark #15417: vectorization support: number of FP up converts: single precision to double precision 1   [ omp-func.c(19,12) ]
+   remark #15417: vectorization support: number of FP up converts: single precision to double precision 1   [ omp-func.c(20,12) ]
+   remark #15417: vectorization support: number of FP up converts: single precision to double precision 1   [ omp-func.c(20,16) ]
+   remark #15417: vectorization support: number of FP up converts: single precision to double precision 1   [ omp-func.c(20,12) ]
+   remark #15418: vectorization support: number of FP down converts: double precision to single precision 1   [ omp-func.c(18,5) ]
+   remark #15301: OpenMP SIMD LOOP WAS VECTORIZED
+   remark #15442: entire loop may be executed in remainder
+   remark #15450: unmasked unaligned unit stride loads: 2 
+   remark #15451: unmasked unaligned unit stride stores: 1 
+   remark #15475: --- begin vector loop cost summary ---
+   remark #15476: scalar loop cost: 402 
+   remark #15477: vector loop cost: 107.000 
+   remark #15478: estimated potential speedup: 3.490 
+   remark #15482: vectorized math library calls: 5 
+   remark #15487: type converts: 6 
+   remark #15488: --- end vector loop cost summary ---
+LOOP END
+
+LOOP BEGIN at omp-func.c(16,3)
+<Remainder loop for vectorization>
+LOOP END
+===========================================================================
+
+Begin optimization report for: vec3(float *, float *, int, int)
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at omp-func.c(30,3)
+   remark #15388: vectorization support: reference a has aligned access   [ omp-func.c(32,17) ]
+   remark #15388: vectorization support: reference b has aligned access   [ omp-func.c(33,12) ]
+   remark #15388: vectorization support: reference a has aligned access   [ omp-func.c(34,12) ]
+   remark #15388: vectorization support: reference b has aligned access   [ omp-func.c(34,16) ]
+   remark #15388: vectorization support: reference a has aligned access   [ omp-func.c(34,12) ]
+   remark #15388: vectorization support: reference a has aligned access   [ omp-func.c(32,5) ]
+   remark #15305: vectorization support: vector length 64
+   remark #15309: vectorization support: normalized vectorization overhead 0.001
+   remark #15417: vectorization support: number of FP up converts: single precision to double precision 1   [ omp-func.c(32,17) ]
+   remark #15417: vectorization support: number of FP up converts: single precision to double precision 1   [ omp-func.c(33,12) ]
+   remark #15417: vectorization support: number of FP up converts: single precision to double precision 1   [ omp-func.c(34,12) ]
+   remark #15417: vectorization support: number of FP up converts: single precision to double precision 1   [ omp-func.c(34,16) ]
+   remark #15417: vectorization support: number of FP up converts: single precision to double precision 1   [ omp-func.c(34,12) ]
+   remark #15418: vectorization support: number of FP down converts: double precision to single precision 1   [ omp-func.c(32,5) ]
+   remark #15301: OpenMP SIMD LOOP WAS VECTORIZED
+   remark #15448: unmasked aligned unit stride loads: 3 
+   remark #15449: unmasked aligned unit stride stores: 1 
+   remark #15475: --- begin vector loop cost summary ---
+   remark #15476: scalar loop cost: 402 
+   remark #15477: vector loop cost: 134.900 
+   remark #15478: estimated potential speedup: 2.300 
+   remark #15482: vectorized math library calls: 5 
+   remark #15487: type converts: 6 
+   remark #15488: --- end vector loop cost summary ---
+LOOP END
+
+LOOP BEGIN at omp-func.c(30,3)
+<Remainder loop for vectorization>
+LOOP END
+===========================================================================
+
+Begin optimization report for: vec4(float *, float *, int, int)
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at omp-func.c(43,3)
+   remark #15388: vectorization support: reference a has aligned access   [ omp-func.c(45,17) ]
+   remark #15388: vectorization support: reference b has aligned access   [ omp-func.c(46,12) ]
+   remark #15388: vectorization support: reference a has aligned access   [ omp-func.c(47,12) ]
+   remark #15388: vectorization support: reference b has aligned access   [ omp-func.c(47,16) ]
+   remark #15388: vectorization support: reference a has aligned access   [ omp-func.c(47,12) ]
+   remark #15388: vectorization support: reference a has aligned access   [ omp-func.c(45,5) ]
+   remark #15305: vectorization support: vector length 64
+   remark #15309: vectorization support: normalized vectorization overhead 0.001
+   remark #15417: vectorization support: number of FP up converts: single precision to double precision 1   [ omp-func.c(45,17) ]
+   remark #15417: vectorization support: number of FP up converts: single precision to double precision 1   [ omp-func.c(46,12) ]
+   remark #15417: vectorization support: number of FP up converts: single precision to double precision 1   [ omp-func.c(47,12) ]
+   remark #15417: vectorization support: number of FP up converts: single precision to double precision 1   [ omp-func.c(47,16) ]
+   remark #15417: vectorization support: number of FP up converts: single precision to double precision 1   [ omp-func.c(47,12) ]
+   remark #15418: vectorization support: number of FP down converts: double precision to single precision 1   [ omp-func.c(45,5) ]
+   remark #15301: OpenMP SIMD LOOP WAS VECTORIZED
+   remark #15448: unmasked aligned unit stride loads: 3 
+   remark #15449: unmasked aligned unit stride stores: 1 
+   remark #15475: --- begin vector loop cost summary ---
+   remark #15476: scalar loop cost: 402 
+   remark #15477: vector loop cost: 134.900 
+   remark #15478: estimated potential speedup: 2.300 
+   remark #15482: vectorized math library calls: 5 
+   remark #15487: type converts: 6 
+   remark #15488: --- end vector loop cost summary ---
+LOOP END
+
+LOOP BEGIN at omp-func.c(43,3)
+<Remainder loop for vectorization>
+LOOP END
+===========================================================================
+
+Begin optimization report for: func1..xN4vv(float, float)
+
+    Report from: Vector optimizations [vec]
+
+remark #15301: FUNCTION WAS VECTORIZED   [ omp-func.c(53,1) ]
+
+LOOP BEGIN at omp-func.c(55,1)
+   remark #15549: loop was vectorized along with the enclosing function
+LOOP END
+===========================================================================
+
+Begin optimization report for: func1..xM4vv(float, float)
+
+    Report from: Vector optimizations [vec]
+
+remark #15301: FUNCTION WAS VECTORIZED   [ omp-func.c(53,1) ]
+
+LOOP BEGIN at omp-func.c(55,1)
+   remark #15549: loop was vectorized along with the enclosing function
+LOOP END
+===========================================================================
+
+Begin optimization report for: func1(float, float)
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at omp-func.c(55,1)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization
+   remark #15346: vector dependence: assumed FLOW dependence between a line 57 and a line 57
+   remark #15346: vector dependence: assumed ANTI dependence between a line 57 and a line 57
+LOOP END
+===========================================================================
+
+Begin optimization report for: func2..xN4vvvv(float, float, float, int)
+
+    Report from: Vector optimizations [vec]
+
+remark #15301: FUNCTION WAS VECTORIZED   [ omp-func.c(66,1) ]
+===========================================================================
+
+Begin optimization report for: func2..xM4vvvv(float, float, float, int)
+
+    Report from: Vector optimizations [vec]
+
+remark #15301: FUNCTION WAS VECTORIZED   [ omp-func.c(66,1) ]
+===========================================================================
+
+Begin optimization report for: vec5(float *, float *, float *, int, int)
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at omp-func.c(76,3)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at omp-func.c(55,1) inlined into omp-func.c(78,12)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization
+      remark #15346: vector dependence: assumed FLOW dependence between a_13 line 57 and a_13 line 57
+      remark #15346: vector dependence: assumed ANTI dependence between a_13 line 57 and a_13 line 57
+      remark #15346: vector dependence: assumed ANTI dependence between a_13 line 57 and a_13 line 57
+   LOOP END
+
+   LOOP BEGIN at omp-func.c(55,1) inlined into omp-func.c(79,12)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization
+      remark #15346: vector dependence: assumed FLOW dependence between a_13 line 57 and a_13 line 57
+      remark #15346: vector dependence: assumed ANTI dependence between a_13 line 57 and a_13 line 57
+      remark #15346: vector dependence: assumed ANTI dependence between a_13 line 57 and a_13 line 57
+   LOOP END
+
+   LOOP BEGIN at omp-func.c(55,1) inlined into omp-func.c(80,12)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization
+      remark #15346: vector dependence: assumed FLOW dependence between a_13 line 57 and a_13 line 57
+      remark #15346: vector dependence: assumed ANTI dependence between a_13 line 57 and a_13 line 57
+      remark #15346: vector dependence: assumed ANTI dependence between a_13 line 57 and a_13 line 57
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: vec6(float *, float *, int, int)
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at omp-func.c(125,2)
+   remark #15382: vectorization support: call to function printf(const char *, ...) cannot be vectorized   [ omp-func.c(129,3) ]
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization
+   remark #15346: vector dependence: assumed ANTI dependence between p line 126 and p line 129
+   remark #15346: vector dependence: assumed FLOW dependence between p line 129 and p line 126
+LOOP END
+===========================================================================
+
+Begin optimization report for: vec7(float *, float *, int, int)
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at omp-func.c(153,3)
+   remark #15382: vectorization support: call to function __kmpc_omp_task_alloc cannot be vectorized   [ omp-func.c(156,3) ]
+   remark #15382: vectorization support: call to function __kmpc_omp_task_with_deps cannot be vectorized   [ omp-func.c(156,3) ]
+   remark #15382: vectorization support: call to function __kmpc_omp_task_alloc cannot be vectorized   [ omp-func.c(161,3) ]
+   remark #15382: vectorization support: call to function __kmpc_omp_task_with_deps cannot be vectorized   [ omp-func.c(161,3) ]
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization
+LOOP END
+
+LOOP BEGIN at omp-func.c(167,4)
+   remark #15388: vectorization support: reference a has aligned access   [ omp-func.c(169,5) ]
+   remark #15388: vectorization support: reference b has aligned access   [ omp-func.c(169,5) ]
+   remark #15388: vectorization support: reference a has aligned access   [ omp-func.c(169,5) ]
+   remark #15388: vectorization support: reference b has aligned access   [ omp-func.c(169,5) ]
+   remark #15388: vectorization support: reference a has aligned access   [ omp-func.c(169,5) ]
+   remark #15388: vectorization support: reference b has aligned access   [ omp-func.c(172,5) ]
+   remark #15388: vectorization support: reference a has aligned access   [ omp-func.c(172,5) ]
+   remark #15388: vectorization support: reference b has aligned access   [ omp-func.c(172,5) ]
+   remark #15388: vectorization support: reference a has aligned access   [ omp-func.c(172,5) ]
+   remark #15388: vectorization support: reference b has aligned access   [ omp-func.c(172,5) ]
+   remark #15305: vectorization support: vector length 64
+   remark #15309: vectorization support: normalized vectorization overhead 0.022
+   remark #15417: vectorization support: number of FP up converts: single precision to double precision 1   [ omp-func.c(169,20) ]
+   remark #15417: vectorization support: number of FP up converts: single precision to double precision 1   [ omp-func.c(172,20) ]
+   remark #15301: OpenMP SIMD LOOP WAS VECTORIZED
+   remark #15448: unmasked aligned unit stride loads: 6 
+   remark #15449: unmasked aligned unit stride stores: 2 
+   remark #15475: --- begin vector loop cost summary ---
+   remark #15476: scalar loop cost: 57 
+   remark #15477: vector loop cost: 13.030 
+   remark #15478: estimated potential speedup: 2.910 
+   remark #15487: type converts: 2 
+   remark #15488: --- end vector loop cost summary ---
+LOOP END
+
+LOOP BEGIN at omp-func.c(167,4)
+<Remainder loop for vectorization>
+LOOP END
+===========================================================================

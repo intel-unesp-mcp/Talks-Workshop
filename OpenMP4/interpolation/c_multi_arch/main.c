@@ -51,10 +51,10 @@ typedef struct  {
 
 #ifdef _OPENMP
 #ifndef __MIC__
-#pragma omp declare simd //uniform(vals) processor(core_4th_gen_avx)
-#pragma omp declare simd //uniform(vals) processor(core_i7_sse4_2)
+#pragma omp declare simd uniform(vals) processor(core_4th_gen_avx)
+#pragma omp declare simd uniform(vals) processor(core_i7_sse4_2)
 #else
-#pragma omp declare simd //uniform(vals)
+#pragma omp declare simd uniform(vals)
 #endif
 #endif
 double Interpolate(double x, const point* vals);
@@ -82,7 +82,7 @@ double Interpolate(double x, const point* vals){
 
 
 const int steps = 512;
-const int ARRAY_SIZE = 20480;
+const int ARRAY_SIZE = 40480;
 
 int main(int argc, char* argv[])
 {

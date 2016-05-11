@@ -1,0 +1,29 @@
+Intel(R) Advisor can now assist with vectorization and show optimization
+  report messages with your source code.
+See "https://software.intel.com/en-us/intel-advisor-xe" for details.
+
+
+Begin optimization report for: main()
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at OMP-function.c(108,3)
+   remark #15382: vectorization support: call to function rand(void) cannot be vectorized   [ OMP-function.c(109,10) ]
+   remark #15382: vectorization support: call to function rand(void) cannot be vectorized   [ OMP-function.c(110,10) ]
+   remark #15382: vectorization support: call to function rand(void) cannot be vectorized   [ OMP-function.c(111,10) ]
+   remark #15382: vectorization support: call to function rand(void) cannot be vectorized   [ OMP-function.c(112,10) ]
+   remark #15382: vectorization support: call to function rand(void) cannot be vectorized   [ OMP-function.c(113,10) ]
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization
+   remark #15346: vector dependence: assumed OUTPUT dependence between call:rand(void) line 109 and call:rand(void) line 113
+   remark #15346: vector dependence: assumed OUTPUT dependence between  line 113 and  line 109
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at OMP-function.c(104,3)
+   remark #15532: loop was not vectorized: compile time constraints prevent loop optimization. Consider using -O3.
+LOOP END
+===========================================================================

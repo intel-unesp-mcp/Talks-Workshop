@@ -277,7 +277,6 @@ void multiply6(int msize, int tidx, int numt, TYPE a[][NUM], TYPE b[][NUM], TYPE
   #pragma omp target data device(0) map(i , j ,k) map(a[0:NUM][0:NUM]) map(b[0:NUM][0:NUM]) map(c[0:NUM][0:NUM])
   {
     #pragma omp target teams distribute parallel for collapse (2) num_teams(2) thread_limit (30) 
-
     for(i=0; i<msize; i++) {
       for(k=0; k<msize; k++) {
         #pragma omp simd 
@@ -317,7 +316,7 @@ void multiply8(int msize, int tidx, int numt, TYPE a[][NUM], TYPE b[][NUM], TYPE
   //offload - target data - target
   int i,j,k;
 
-  #pragma omp target data map(to:a[0:NUM][0:NUM]) map(i , j ,k)  map(to:b[0:NUM][0:NUM]) map(tofrom:c[0:NUM][0:NUM])
+  #pragma omp target data map(to:a[0:NUM][0:NUM]) map(i , j ,k)  map(to:b[0:NUM][0:NUM]) map(to:c[0:NUM][0:NUM])
   {
     #pragma omp target 
     {
