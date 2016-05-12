@@ -51,10 +51,75 @@ export OMP_NUM_THREADS=10
 ./OMP-hello
 ```
 
+Results:
+
+```
+hello from hostname phi02.ncc.unesp.br
+hello from hostname phi02.ncc.unesp.br
+hello from hostname phi02.ncc.unesp.br
+hello from hostname phi02.ncc.unesp.br
+hello from hostname phi02.ncc.unesp.br
+hello from hostname phi02.ncc.unesp.br
+hello from hostname phi02.ncc.unesp.br
+hello from hostname phi02.ncc.unesp.br
+hello from hostname phi02.ncc.unesp.br
+hello from hostname phi02.ncc.unesp.br
+```
+
 Launch the application on the Coprocessor from host
 ```
-micnativeloadex ./OMP-hello.mic -e "LD_LIBRARY_PATH=/opt/intel/lib/mic/"
+micnativeloadex ./OMP-hello.mic -e "OMP_NUM_THREADS=10 LD_LIBRARY_PATH=/opt/intel/lib/mic/"
+
 ```
+
+Results:
+
+```
+hello from hostname phi02-mic0.ncc.unesp.br
+hello from hostname phi02-mic0.ncc.unesp.br
+hello from hostname phi02-mic0.ncc.unesp.br
+hello from hostname phi02-mic0.ncc.unesp.br
+hello from hostname phi02-mic0.ncc.unesp.br
+hello from hostname phi02-mic0.ncc.unesp.br
+hello from hostname phi02-mic0.ncc.unesp.br
+hello from hostname phi02-mic0.ncc.unesp.br
+hello from hostname phi02-mic0.ncc.unesp.br
+hello from hostname phi02-mic0.ncc.unesp.br
+sum of vector elements: 5789.473684
+```
+
+Thread Affinity
+
+compact xeon
+```
+export KMP_AFFINITY=compact,verbose
+./OMP_hello
+```
+compact xeon phi
+
+```
+micnativeloadex ./OMP-hello.mic -e "KMP_AFFINITY=compact,verbose OMP_NUM_THREADS=10 LD_LIBRARY_PATH=/opt/intel/lib/mic/"
+```
+
+scatter xeon
+```
+export KMP_AFFINITY=scatter,verbose
+./OMP_hello
+```
+
+scatter xeon phi
+
+```
+micnativeloadex ./OMP-hello.mic -e "KMP_AFFINITY=scatter,verbose OMP_NUM_THREADS=10 LD_LIBRARY_PATH=/opt/intel/lib/mic/"
+```
+
+balanced xeon phi
+
+```
+micnativeloadex ./OMP-hello.mic -e "KMP_AFFINITY=balanced,verbose OMP_NUM_THREADS=10 LD_LIBRARY_PATH=/opt/intel/lib/mic/"
+```
+
+
 
 # 2. Vectorization
 
