@@ -47,6 +47,7 @@ icc OMP-hello.c -o OMP-hello.mic -mmic -fopenmp
 
 Launch the application on Xeon
 ```
+export OMP_NUM_THREADS=10
 ./OMP-hello
 ```
 
