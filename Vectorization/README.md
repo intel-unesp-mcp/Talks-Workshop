@@ -15,6 +15,13 @@ __attribute__((align(n)) - new
 __declspec(align(n)) - old
 ```
 
+auto-vectozation
+O3:
+icc autovec2.c -o autovec2 -O3
+advisor
+
+prevents vectorization
+
 References
 
 https://software.intel.com/en-us/articles/memory-management-for-optimal-performance-on-intel-xeon-phi-coprocessor-alignment-and
