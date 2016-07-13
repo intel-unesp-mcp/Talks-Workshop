@@ -16,11 +16,23 @@ __declspec(align(n)) - old
 ```
 
 auto-vectozation
-O3:
-icc autovec2.c -o autovec2 -O3
-advisor
 
-prevents vectorization
+icc autovec.c -o autovec -vec-report=6
+cat autovec.optrpt
+
+icc autovec.c -o autovec -vec-report=6 -O3
+cat autovec.optrpt
+
+icc autovec.c -o autovec -vec-report=6 -g -O3
+cat autovec.optrpt
+
+icc autovec.c -o autovec -vec-report=6 -g -O3 -xhost
+cat autovec.optrpt
+
+icc novec.c -o novec -vec-report=6 -g -O3
+cat novec.optrpt
+
+-axfeature
 
 References
 
