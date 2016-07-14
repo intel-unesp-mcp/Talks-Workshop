@@ -1,4 +1,6 @@
-padding
+Memory Access Optimization
+
+Padding
 
 icc padd.c -o padd
 ./padd
@@ -33,6 +35,8 @@ icc novec.c -o novec -vec-report=6 -g -O3
 cat novec.optrpt
 
 -axfeature
+
+Guided Vectorization
 
 References
 
