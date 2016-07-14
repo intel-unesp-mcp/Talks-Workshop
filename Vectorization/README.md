@@ -1,6 +1,22 @@
 O3
+icc autoO3.c -o autoO3 -O0
+
+time ./autoO3
+
+real    0m8.428s
+user    0m8.422s
+sys     0m0.001s
+
 
 icc autoO3.c -o autoO3 -O3 -vec-report6
+
+time ./autoO3
+
+real    0m0.003s
+user    0m0.001s
+sys     0m0.001s
+
+
 cat autoO3.optrpt
 
 Begin optimization report for: main()
@@ -17,7 +33,6 @@ LOOP BEGIN at autoO3.c(10,3)
       remark #15414: loop was not vectorized: nothing to vectorize since loop body became empty after optimizations
    LOOP END
 LOOP END
-===========================================================================
 
 
 Memory Access Optimization
