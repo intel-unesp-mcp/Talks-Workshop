@@ -104,6 +104,26 @@ LOOP BEGIN at matrix.c(22,3)
    LOOP END
 LOOP END
 
+after pragma simd
+
+LOOP BEGIN at matrix.c(25,7)
+         remark #15389: vectorization support: reference a has unaligned access   [ matrix.c(27,4) ]
+         remark #15389: vectorization support: reference b has unaligned access   [ matrix.c(27,4) ]
+         remark #15381: vectorization support: unaligned access used inside loop body
+         remark #15415: vectorization support: gather was generated for the variable b:  indirect access, 64bit indexed   [ matrix.c(27,34) ]
+         remark #15305: vectorization support: vector length 4
+         remark #15399: vectorization support: unroll factor set to 4
+         remark #15309: vectorization support: normalized vectorization overhead 0.231
+         remark #15301: SIMD LOOP WAS VECTORIZED
+         remark #15442: entire loop may be executed in remainder
+         remark #15450: unmasked unaligned unit stride loads: 2
+         remark #15458: masked indexed (or gather) loads: 1
+         remark #15475: --- begin vector loop cost summary ---
+         remark #15476: scalar loop cost: 27
+         remark #15477: vector loop cost: 6.750
+         remark #15478: estimated potential speedup: 3.530
+         remark #15488: --- end vector loop cost summary ---
+      LOOP END
 
 
 References
