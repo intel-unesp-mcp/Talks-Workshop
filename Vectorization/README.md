@@ -1,3 +1,25 @@
+O3
+
+icc autoO3.c -o autoO3 -O3 -vec-report6
+cat autoO3.optrpt
+
+Begin optimization report for: main()
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at autoO3.c(10,3)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization
+   remark #15346: vector dependence: assumed OUTPUT dependence between A line 14 and A line 14
+   remark #15346: vector dependence: assumed OUTPUT dependence between A line 14 and A line 14
+
+   LOOP BEGIN at autoO3.c(13,5)
+      remark #15414: loop was not vectorized: nothing to vectorize since loop body became empty after optimizations
+   LOOP END
+LOOP END
+===========================================================================
+
+
 Memory Access Optimization
 
 Padding
