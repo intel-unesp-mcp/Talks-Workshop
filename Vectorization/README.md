@@ -82,6 +82,28 @@ icc -vec-report6 -c -O3 -xhost matrix.c -o matrix.o
 icc -vec-report6 -O3 -xhost autovec2.o matrix.o -o autovec2.icc
 
 
+LOOP BEGIN at matrix.c(22,3)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization
+   remark #15346: vector dependence: assumed OUTPUT dependence between c line 27 and c line 27
+   remark #15346: vector dependence: assumed OUTPUT dependence between c line 27 and c line 27
+
+   LOOP BEGIN at matrix.c(23,5)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization
+      remark #15346: vector dependence: assumed OUTPUT dependence between c line 27 and c line 27
+      remark #15346: vector dependence: assumed OUTPUT dependence between c line 27 and c line 27
+
+      LOOP BEGIN at matrix.c(24,7)
+         remark #15344: loop was not vectorized: vector dependence prevents vectorization
+         remark #15346: vector dependence: assumed FLOW dependence between c line 27 and c line 27
+         remark #15346: vector dependence: assumed ANTI dependence between c line 27 and c line 27
+      LOOP END
+
+      LOOP BEGIN at matrix.c(24,7)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+
 
 
 References
