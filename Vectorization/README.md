@@ -1,3 +1,24 @@
+Memory Access Optimization
+
+Padding
+
+icc padd.c -o padd
+./padd
+
+dynamic allocation - aligned
+```
+_mm_malloc
+_mm_free
+```
+
+static allocation - aligned
+```
+__attribute__((align(n)) - new
+__declspec(align(n)) - old
+```
+
+auto-vectozation
+
 O3
 icc autoO3.c -o autoO3 -O0
 
@@ -34,27 +55,6 @@ LOOP BEGIN at autoO3.c(10,3)
    LOOP END
 LOOP END
 
-
-Memory Access Optimization
-
-Padding
-
-icc padd.c -o padd
-./padd
-
-dynamic allocation - aligned
-```
-_mm_malloc
-_mm_free
-```
-
-static allocation - aligned
-```
-__attribute__((align(n)) - new
-__declspec(align(n)) - old
-```
-
-auto-vectozation
 
 icc autovec.c -o autovec -vec-report=6
 cat autovec.optrpt
