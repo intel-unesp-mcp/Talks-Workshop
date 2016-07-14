@@ -75,6 +75,15 @@ cat novec.optrpt
 
 Guided Vectorization
 
+Loop not vectorizes
+
+icc -vec-report6 -c -O3 -xhost autovec2.c -o autovec2.o
+icc -vec-report6 -c -O3 -xhost matrix.c -o matrix.o
+icc -vec-report6 -O3 -xhost autovec2.o matrix.o -o autovec2.icc
+
+
+
+
 References
 
 https://software.intel.com/en-us/articles/memory-management-for-optimal-performance-on-intel-xeon-phi-coprocessor-alignment-and
