@@ -133,3 +133,5 @@ https://software.intel.com/en-us/articles/memory-management-for-optimal-performa
 https://software.intel.com/en-us/articles/data-alignment-to-assist-vectorization
 
 https://software.intel.com/en-us/articles/memory-management-for-optimal-performance-on-intel-xeon-phi-coprocessor-alignment-and
+
+http://www.cs.uu.nl/docs/vakken/mov/
