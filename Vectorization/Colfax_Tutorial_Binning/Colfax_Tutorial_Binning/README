@@ -1,0 +1,37 @@
+   This program is a demonstration of optimization techniques 
+   for Intel Xeon processors and Intel Xeon Phi coprocessors:
+   a particle binning micro-kernel.
+   
+   Copyright (c) 2015, Colfax International
+
+   For more information, refer to the 3-part series of publications
+   "Optimization Techniques for the Intel MIC Architecture" 
+   at Colfax Research:
+      http://colfaxresearch.com/?p=6
+      http://colfaxresearch.com/?p=709
+      http://colfaxresearch.com/?p=1231
+
+   Authors: 
+            andrey@colfax-intl.com  Andrey Vladimirov
+            ryo@colfax-intl.com     Ryo Asai
+            phi@colfax-intl.com     General inquiries
+
+REQUIREMENTS:
+  - Intel C++ compiler version 15.0 or greater;
+  - Multi-core processor based on Intel architecture;
+  - Optionally: an Intel Xeon Phi coprocessor of the 1st generation
+  - Linux operating system in order to use the included
+    Makefile and benchmark script.
+
+EXAMPLES OF USAGE:
+  - To compile the code, run "make"
+  - To run a benchmark on the host CPU, run "make run-cpu"
+  - To run a benchmark on the coprocessor, run "make run-mic"
+  - To produce a single-precision version of the code, 
+    edit the Makefile so that the line 
+    #PRECISION=-DDOUBLE_PRECISION
+    is commented out (i.e., has a # character at the beginning)
+  - To produce a double-precision version of the code, 
+    edit the Makefile so that the line 
+    PRECISION=-DDOUBLE_PRECISION
+    is not commented out (i.e., does not have a # character at the beginning)
