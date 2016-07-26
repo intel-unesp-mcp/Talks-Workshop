@@ -19,7 +19,7 @@ __declspec(align(n)) - old
 
 auto-vectozation
 
-O3
+```O3
 icc autoO3.c -o autoO3 -O0
 
 time ./autoO3
@@ -27,8 +27,9 @@ time ./autoO3
 real    0m8.428s
 user    0m8.422s
 sys     0m0.001s
+```
 
-
+```
 icc autoO3.c -o autoO3 -O3 -vec-report6
 
 time ./autoO3
@@ -36,8 +37,9 @@ time ./autoO3
 real    0m0.003s
 user    0m0.001s
 sys     0m0.001s
+```
 
-
+```
 cat autoO3.optrpt
 
 Begin optimization report for: main()
@@ -54,8 +56,9 @@ LOOP BEGIN at autoO3.c(10,3)
       remark #15414: loop was not vectorized: nothing to vectorize since loop body became empty after optimizations
    LOOP END
 LOOP END
+```
 
-
+```
 icc autovec.c -o autovec -vec-report=6
 cat autovec.optrpt
 
@@ -70,18 +73,21 @@ cat autovec.optrpt
 
 icc novec.c -o novec -vec-report=6 -g -O3
 cat novec.optrpt
+```
 
 -axfeature
 
 Guided Vectorization
 
-Loop not vectorizes
+Loop not vectorize
 
+```
 icc -vec-report6 -c -O3 -xhost autovec2.c -o autovec2.o
 icc -vec-report6 -c -O3 -xhost matrix.c -o matrix.o
 icc -vec-report6 -O3 -xhost autovec2.o matrix.o -o autovec2.icc
+```
 
-
+```
 LOOP BEGIN at matrix.c(22,3)
    remark #15344: loop was not vectorized: vector dependence prevents vectorization
    remark #15346: vector dependence: assumed OUTPUT dependence between c line 27 and c line 27
@@ -103,9 +109,11 @@ LOOP BEGIN at matrix.c(22,3)
       LOOP END
    LOOP END
 LOOP END
+```
 
 after pragma simd
 
+```
 LOOP BEGIN at matrix.c(25,7)
          remark #15389: vectorization support: reference a has unaligned access   [ matrix.c(27,4) ]
          remark #15389: vectorization support: reference b has unaligned access   [ matrix.c(27,4) ]
@@ -124,7 +132,7 @@ LOOP BEGIN at matrix.c(25,7)
          remark #15478: estimated potential speedup: 3.530
          remark #15488: --- end vector loop cost summary ---
       LOOP END
-
+```
 
 References
 
