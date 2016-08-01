@@ -5,6 +5,9 @@ Padding
 icc padd.c -o padd
 ./padd
 
+icc vec.c -o vec -O3
+
+
 dynamic allocation - aligned
 ```
 _mm_malloc
