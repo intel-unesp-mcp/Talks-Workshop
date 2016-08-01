@@ -5,20 +5,9 @@ Padding
 icc padd.c -o padd
 ./padd
 
+different strides on the same code
+
 icc vec.c -o vec -O3
-
-
-dynamic allocation - aligned
-```
-_mm_malloc
-_mm_free
-```
-
-static allocation - aligned
-```
-__attribute__((align(n)) - new
-__declspec(align(n)) - old
-```
 
 auto-vectozation
 
@@ -73,9 +62,25 @@ cat autovec.optrpt
 
 icc autovec.c -o autovec -vec-report=6 -g -O3 -xhost
 cat autovec.optrpt
+```
 
+loop that do not auto vectorize
+
+```
 icc novec.c -o novec -vec-report=6 -g -O3
 cat novec.optrpt
+```
+
+dynamic allocation - aligned
+```
+_mm_malloc
+_mm_free
+```
+
+static allocation - aligned
+```
+__attribute__((align(n)) - new
+__declspec(align(n)) - old
 ```
 
 -axfeature
