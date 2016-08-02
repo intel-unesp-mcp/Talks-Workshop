@@ -142,6 +142,13 @@ LOOP BEGIN at matrix.c(25,7)
       LOOP END
 ```
 
+
+numactl
+```
+time numactl --cpubind=1 --membind=0 ./matrix.icc
+time numactl --cpubind=1 --membind=1 ./matrix.icc
+```
+
 References
 
 https://software.intel.com/en-us/articles/memory-management-for-optimal-performance-on-intel-xeon-phi-coprocessor-alignment-and
