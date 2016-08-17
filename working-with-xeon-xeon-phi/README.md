@@ -14,9 +14,22 @@ icc helloWorld.c -o helloWorld.mic -mmic
 micnativeloadex helloWorld.mic
 ```
 
-# Compile and running for Intel Xeon offloaing to Xeon Phi
+# Compile and running for Intel Xeon offloading to Xeon Phi
 
 ```
 icc helloWorldOffload.c -o helloWorldOffload
 ./helloWorldOffload
+```
+# function offloading
+
+```
+icc offloadFunction.c -o offloadFunction
+./offloadFunction
+```
+
+# function offloading
+
+```
+icc offloadFunction2.c -o offloadFunction2
+./offloadFunction2
 ```
