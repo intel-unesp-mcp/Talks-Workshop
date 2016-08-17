@@ -12,9 +12,9 @@ different strides on the same code
 icc vec.c -o vec -O3
 ```
 
-auto-vectozation
+optimization O3 ->
 
-```O3
+```
 icc autoO3.c -o autoO3 -O0
 
 time ./autoO3
