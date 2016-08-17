@@ -1,0 +1,46 @@
+Intel(R) Advisor can now assist with vectorization and show optimization
+  report messages with your source code.
+See "https://software.intel.com/en-us/intel-advisor-xe" for details.
+
+
+Begin optimization report for: Interpolate.._simdsimd3__H2n_v1_v1.P(double, const point *)
+
+    Report from: Vector optimizations [vec]
+
+remark #15301: FUNCTION WAS VECTORIZED   [ interpolate.c(50,48) ]
+===========================================================================
+
+Begin optimization report for: Interpolate.._simdsimd3__H2m_v1_v1.P(double, const point *)
+
+    Report from: Vector optimizations [vec]
+
+remark #15301: FUNCTION WAS VECTORIZED   [ interpolate.c(50,48) ]
+===========================================================================
+
+Begin optimization report for: FindPosition.._simdsimd3__H2n_v1.P(double)
+
+    Report from: Vector optimizations [vec]
+
+remark #15301: FUNCTION WAS VECTORIZED   [ interpolate.c(46,28) ]
+===========================================================================
+
+Begin optimization report for: FindPosition.._simdsimd3__H2m_v1.P(double)
+
+    Report from: Vector optimizations [vec]
+
+remark #15301: FUNCTION WAS VECTORIZED   [ interpolate.c(46,28) ]
+===========================================================================
+
+Begin optimization report for: FindPosition.._simdsimd3__L4n_v1.V(double)
+
+    Report from: Vector optimizations [vec]
+
+remark #15301: FUNCTION WAS VECTORIZED   [ interpolate.c(46,28) ]
+===========================================================================
+
+Begin optimization report for: FindPosition.._simdsimd3__L4m_v1.V(double)
+
+    Report from: Vector optimizations [vec]
+
+remark #15301: FUNCTION WAS VECTORIZED   [ interpolate.c(46,28) ]
+===========================================================================

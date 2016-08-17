@@ -1,0 +1,199 @@
+Intel(R) Advisor can now assist with vectorization and show optimization
+  report messages with your source code.
+See "https://software.intel.com/en-us/intel-advisor-xe" for details.
+
+
+Begin optimization report for: main(int, char **)
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at main.c(106,5)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization
+   remark #15346: vector dependence: assumed FLOW dependence between prev_val line 113 and prev_val line 109
+   remark #15346: vector dependence: assumed ANTI dependence between prev_val line 109 and prev_val line 113
+LOOP END
+
+LOOP BEGIN at main.c(117,5)
+   remark #15527: loop was not vectorized: function call to rand(void) cannot be vectorized   [ main.c(118,25) ]
+LOOP END
+
+LOOP BEGIN at main.c(121,5)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at main.c(126,9)
+      remark #15388: vectorization support: reference src has aligned access   [ main.c(127,18) ]
+      remark #15388: vectorization support: reference dst has aligned access   [ main.c(127,9) ]
+      remark #15305: vectorization support: vector length 8
+      remark #15399: vectorization support: unroll factor set to 2
+      remark #15309: vectorization support: normalized vectorization overhead 0.013
+      remark #15301: OpenMP SIMD LOOP WAS VECTORIZED
+      remark #15448: unmasked aligned unit stride loads: 1 
+      remark #15449: unmasked aligned unit stride stores: 1 
+      remark #15475: --- begin vector loop cost summary ---
+      remark #15476: scalar loop cost: 107 
+      remark #15477: vector loop cost: 14.500 
+      remark #15478: estimated potential speedup: 7.370 
+      remark #15484: vector function calls: 1 
+      remark #15488: --- end vector loop cost summary ---
+      remark #15489: --- begin vector function matching report ---
+      remark #15490: Function call: Interpolate(double, const point *) with simdlen=8, actual parameter types: (vector,uniform)   [ main.c(127,18) ]
+      remark #15492: A suitable vector variant was found (out of 4) with ymm2, simdlen=4, unmasked, formal parameter types: (vector,uniform)
+      remark #15493: --- end vector function matching report ---
+   LOOP END
+LOOP END
+
+LOOP BEGIN at main.c(132,5)
+   remark #15520: loop was not vectorized: loop with multiple exits cannot be vectorized unless it meets search loop idiom criteria   [ main.c(137,13) ]
+LOOP END
+===========================================================================
+
+Begin optimization report for: main(int, char **) [core_4th_gen_avx]
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at main.c(106,5)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization
+   remark #15346: vector dependence: assumed FLOW dependence between prev_val line 113 and prev_val line 109
+   remark #15346: vector dependence: assumed ANTI dependence between prev_val line 109 and prev_val line 113
+LOOP END
+
+LOOP BEGIN at main.c(117,5)
+   remark #15527: loop was not vectorized: function call to rand(void) cannot be vectorized   [ main.c(118,25) ]
+LOOP END
+
+LOOP BEGIN at main.c(121,5)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at main.c(126,9)
+      remark #15388: vectorization support: reference src has aligned access   [ main.c(127,18) ]
+      remark #15388: vectorization support: reference dst has aligned access   [ main.c(127,9) ]
+      remark #15305: vectorization support: vector length 8
+      remark #15399: vectorization support: unroll factor set to 2
+      remark #15309: vectorization support: normalized vectorization overhead 0.013
+      remark #15301: OpenMP SIMD LOOP WAS VECTORIZED
+      remark #15448: unmasked aligned unit stride loads: 1 
+      remark #15449: unmasked aligned unit stride stores: 1 
+      remark #15475: --- begin vector loop cost summary ---
+      remark #15476: scalar loop cost: 107 
+      remark #15477: vector loop cost: 14.500 
+      remark #15478: estimated potential speedup: 7.370 
+      remark #15484: vector function calls: 1 
+      remark #15488: --- end vector loop cost summary ---
+      remark #15489: --- begin vector function matching report ---
+      remark #15490: Function call: Interpolate(double, const point *) with simdlen=8, actual parameter types: (vector,uniform)   [ main.c(127,18) ]
+      remark #15492: A suitable vector variant was found (out of 4) with ymm2, simdlen=4, unmasked, formal parameter types: (vector,uniform)
+      remark #15493: --- end vector function matching report ---
+   LOOP END
+LOOP END
+
+LOOP BEGIN at main.c(132,5)
+   remark #15520: loop was not vectorized: loop with multiple exits cannot be vectorized unless it meets search loop idiom criteria   [ main.c(137,13) ]
+LOOP END
+===========================================================================
+
+Begin optimization report for: main(int, char **) [generic]
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at main.c(106,5)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization
+   remark #15346: vector dependence: assumed FLOW dependence between prev_val line 113 and prev_val line 109
+   remark #15346: vector dependence: assumed ANTI dependence between prev_val line 109 and prev_val line 113
+LOOP END
+
+LOOP BEGIN at main.c(117,5)
+   remark #15527: loop was not vectorized: function call to rand(void) cannot be vectorized   [ main.c(118,25) ]
+LOOP END
+
+LOOP BEGIN at main.c(121,5)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at main.c(126,9)
+      remark #15388: vectorization support: reference src has aligned access   [ main.c(127,18) ]
+      remark #15388: vectorization support: reference dst has aligned access   [ main.c(127,9) ]
+      remark #15305: vectorization support: vector length 4
+      remark #15399: vectorization support: unroll factor set to 2
+      remark #15309: vectorization support: normalized vectorization overhead 0.022
+      remark #15301: OpenMP SIMD LOOP WAS VECTORIZED
+      remark #15448: unmasked aligned unit stride loads: 1 
+      remark #15449: unmasked aligned unit stride stores: 1 
+      remark #15475: --- begin vector loop cost summary ---
+      remark #15476: scalar loop cost: 107 
+      remark #15477: vector loop cost: 29.000 
+      remark #15478: estimated potential speedup: 3.680 
+      remark #15484: vector function calls: 1 
+      remark #15488: --- end vector loop cost summary ---
+      remark #15489: --- begin vector function matching report ---
+      remark #15490: Function call: Interpolate(double, const point *) with simdlen=4, actual parameter types: (vector,uniform)   [ main.c(127,18) ]
+      remark #15492: A suitable vector variant was found (out of 4) with xmm, simdlen=2, unmasked, formal parameter types: (vector,uniform)
+      remark #15493: --- end vector function matching report ---
+   LOOP END
+LOOP END
+
+LOOP BEGIN at main.c(132,5)
+   remark #15520: loop was not vectorized: loop with multiple exits cannot be vectorized unless it meets search loop idiom criteria   [ main.c(137,13) ]
+LOOP END
+===========================================================================
+
+Begin optimization report for: Interpolate.._simdsimd3__H2n_v1_s1.P(double, const point *)
+
+    Report from: Vector optimizations [vec]
+
+remark #15301: FUNCTION WAS VECTORIZED   [ main.c(74,48) ]
+===========================================================================
+
+Begin optimization report for: Interpolate.._simdsimd3__H2m_v1_s1.P(double, const point *)
+
+    Report from: Vector optimizations [vec]
+
+remark #15301: FUNCTION WAS VECTORIZED   [ main.c(74,48) ]
+===========================================================================
+
+Begin optimization report for: Interpolate.._simdsimd3__L4n_v1_s1.V(double, const point *)
+
+    Report from: Vector optimizations [vec]
+
+remark #15301: FUNCTION WAS VECTORIZED   [ main.c(74,48) ]
+remark #15415: vectorization support: gather was generated for the variable pnt:  indirect access, 64bit indexed   [ main.c(78,26) ]
+remark #15415: vectorization support: gather was generated for the variable pnt:  indirect access, 64bit indexed   [ main.c(78,36) ]
+===========================================================================
+
+Begin optimization report for: Interpolate.._simdsimd3__L4m_v1_s1.V(double, const point *)
+
+    Report from: Vector optimizations [vec]
+
+remark #15301: FUNCTION WAS VECTORIZED   [ main.c(74,48) ]
+remark #15415: vectorization support: gather was generated for the variable pnt: masked, indirect access, 64bit indexed   [ main.c(78,26) ]
+remark #15415: vectorization support: gather was generated for the variable pnt: masked, indirect access, 64bit indexed   [ main.c(78,36) ]
+===========================================================================
+
+Begin optimization report for: FindPosition.._simdsimd3__H2n_v1.P(double)
+
+    Report from: Vector optimizations [vec]
+
+remark #15301: FUNCTION WAS VECTORIZED   [ main.c(70,28) ]
+===========================================================================
+
+Begin optimization report for: FindPosition.._simdsimd3__H2m_v1.P(double)
+
+    Report from: Vector optimizations [vec]
+
+remark #15301: FUNCTION WAS VECTORIZED   [ main.c(70,28) ]
+===========================================================================
+
+Begin optimization report for: FindPosition.._simdsimd3__L4n_v1.V(double)
+
+    Report from: Vector optimizations [vec]
+
+remark #15301: FUNCTION WAS VECTORIZED   [ main.c(70,28) ]
+===========================================================================
+
+Begin optimization report for: FindPosition.._simdsimd3__L4m_v1.V(double)
+
+    Report from: Vector optimizations [vec]
+
+remark #15301: FUNCTION WAS VECTORIZED   [ main.c(70,28) ]
+===========================================================================
