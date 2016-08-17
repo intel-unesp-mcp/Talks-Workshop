@@ -1,0 +1,906 @@
+Intel(R) Advisor can now assist with vectorization and show optimization
+  report messages with your source code.
+See "https://software.intel.com/en-us/intel-advisor-xe" for details.
+
+
+Begin optimization report for: main(int, char **)
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at Binning.cc(528,3)
+   remark #15388: vectorization support: reference binnedDataRef has aligned access
+   remark #15305: vectorization support: vector length 8
+   remark #15399: vectorization support: unroll factor set to 4
+   remark #15300: LOOP WAS VECTORIZED
+   remark #15449: unmasked aligned unit stride stores: 1 
+   remark #15475: --- begin vector loop cost summary ---
+   remark #15476: scalar loop cost: 2 
+   remark #15477: vector loop cost: 0.370 
+   remark #15478: estimated potential speedup: 4.540 
+   remark #15488: --- end vector loop cost summary ---
+LOOP END
+
+LOOP BEGIN at Binning.cc(528,3)
+<Remainder loop for vectorization>
+   remark #15388: vectorization support: reference binnedDataRef has aligned access
+   remark #15335: remainder loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   remark #15305: vectorization support: vector length 4
+   remark #15427: loop was completely unrolled
+LOOP END
+
+LOOP BEGIN at Binning.cc(68,3) inlined into Binning.cc(540,3)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization
+   remark #15346: vector dependence: assumed FLOW dependence between binnedDataRef line 79 and binnedDataRef line 79
+   remark #15346: vector dependence: assumed ANTI dependence between binnedDataRef line 79 and binnedDataRef line 79
+LOOP END
+
+LOOP BEGIN at Binning.cc(594,7)
+   remark #15388: vectorization support: reference binnedData has aligned access
+   remark #15305: vectorization support: vector length 8
+   remark #15399: vectorization support: unroll factor set to 4
+   remark #15300: LOOP WAS VECTORIZED
+   remark #15449: unmasked aligned unit stride stores: 1 
+   remark #15475: --- begin vector loop cost summary ---
+   remark #15476: scalar loop cost: 2 
+   remark #15477: vector loop cost: 0.370 
+   remark #15478: estimated potential speedup: 4.540 
+   remark #15488: --- end vector loop cost summary ---
+LOOP END
+
+LOOP BEGIN at Binning.cc(594,7)
+<Remainder loop for vectorization>
+   remark #15388: vectorization support: reference binnedData has aligned access
+   remark #15335: remainder loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+   remark #15305: vectorization support: vector length 4
+   remark #15427: loop was completely unrolled
+LOOP END
+
+LOOP BEGIN at Binning.cc(472,3) inlined into Binning.cc(602,19)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at Binning.cc(473,5) inlined into Binning.cc(602,19)
+      remark #15305: vectorization support: vector length 8
+      remark #15309: vectorization support: normalized vectorization overhead 0.382
+      remark #15300: LOOP WAS VECTORIZED
+      remark #15450: unmasked unaligned unit stride loads: 3 
+      remark #15475: --- begin vector loop cost summary ---
+      remark #15476: scalar loop cost: 27 
+      remark #15477: vector loop cost: 4.250 
+      remark #15478: estimated potential speedup: 2.670 
+      remark #15487: type converts: 2 
+      remark #15488: --- end vector loop cost summary ---
+   LOOP END
+
+   LOOP BEGIN at Binning.cc(473,5) inlined into Binning.cc(602,19)
+   <Remainder loop for vectorization>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at Binning.cc(481,2) inlined into Binning.cc(602,19)
+   remark #15333: loop was not vectorized: exception handling for a call prevents vectorization   [ Binning.cc(482,4) ]
+LOOP END
+
+LOOP BEGIN at Binning.cc(491,33)
+   remark #15382: vectorization support: call to function __atomic_fetch_add_4(volatile void *, unsigned int, int) cannot be vectorized   [ /usr/include/c++/4.8.5/ext/atomicity.h(49,12) ]
+   remark #15382: vectorization support: call to function std::basic_string<char, std::char_traits<char>, std::allocator<char>>::_Rep::_M_destroy(std::basic_string<char, std::char_traits<char>, std::allocator<char>>::_Rep *, const std::allocator<char> &) cannot be vectorized   [ /usr/include/c++/4.8.5/bits/basic_string.h(249,5) ]
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization
+   remark #15346: vector dependence: assumed ANTI dependence between __mem_3667 line 539 and __mem_3667 line 68
+   remark #15346: vector dependence: assumed FLOW dependence between U22_V line 68 and U22_V line 539
+LOOP END
+
+LOOP BEGIN at Binning.cc(520,3)
+<Peeled loop for vectorization, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at Binning.cc(520,3)
+<Multiversioned v1>
+   remark #15389: vectorization support: reference rawData has unaligned access   [ Binning.cc(521,5) ]
+   remark #15388: vectorization support: reference rawData has aligned access   [ Binning.cc(522,5) ]
+   remark #15381: vectorization support: unaligned access used inside loop body
+   remark #15412: vectorization support: streaming store was generated for rawData   [ Binning.cc(522,5) ]
+   remark #15305: vectorization support: vector length 8
+   remark #15309: vectorization support: normalized vectorization overhead 1.625
+   remark #15300: LOOP WAS VECTORIZED
+   remark #15442: entire loop may be executed in remainder
+   remark #15449: unmasked aligned unit stride stores: 1 
+   remark #15451: unmasked unaligned unit stride stores: 1 
+   remark #15467: unmasked aligned streaming stores: 1 
+   remark #15475: --- begin vector loop cost summary ---
+   remark #15476: scalar loop cost: 9 
+   remark #15477: vector loop cost: 1.000 
+   remark #15478: estimated potential speedup: 8.990 
+   remark #15488: --- end vector loop cost summary ---
+LOOP END
+
+LOOP BEGIN at Binning.cc(520,3)
+<Remainder loop for vectorization, Multiversioned v1>
+LOOP END
+
+LOOP BEGIN at Binning.cc(520,3)
+<Multiversioned v2>
+   remark #15304: loop was not vectorized: non-vectorizable loop instance from multiversioning
+LOOP END
+
+LOOP BEGIN at Binning.cc(520,3)
+<Remainder, Multiversioned v2>
+LOOP END
+
+LOOP BEGIN at Binning.cc(491,33)
+   remark #15382: vectorization support: call to function __gnu_cxx::__exchange_and_add_dispatch(_Atomic_word *, int) cannot be vectorized   [ /usr/include/c++/4.8.5/bits/basic_string.h(245,12) ]
+   remark #15382: vectorization support: call to function std::basic_string<char, std::char_traits<char>, std::allocator<char>>::_Rep::_M_destroy(std::basic_string<char, std::char_traits<char>, std::allocator<char>>::_Rep *, const std::allocator<char> &) cannot be vectorized   [ /usr/include/c++/4.8.5/bits/basic_string.h(249,5) ]
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization
+   remark #15346: vector dependence: assumed ANTI dependence between U20_V line 539 and  line 245
+   remark #15346: vector dependence: assumed FLOW dependence between  line 245 and U20_V line 539
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at Binning.cc(591,5)
+   remark #15333: loop was not vectorized: exception handling for a call prevents vectorization   [ Binning.cc(597,12) ]
+LOOP END
+
+LOOP BEGIN at Binning.cc(479,5) inlined into Binning.cc(602,19)
+   remark #15333: loop was not vectorized: exception handling for a call prevents vectorization   [ Binning.cc(482,4) ]
+LOOP END
+===========================================================================
+
+Begin optimization report for: BinParticlesReference(const InputDataType &, BinsType &)
+
+    Report from: Vector optimizations [vec]
+
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at Binning.cc(68,3)
+   remark #15523: loop was not vectorized: loop control variable i was found, but loop iteration count cannot be computed before executing the loop
+LOOP END
+===========================================================================
+
+Begin optimization report for: BinParticles_1(const InputDataType &, BinsType &)
+
+    Report from: Vector optimizations [vec]
+
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at Binning.cc(94,3)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.   [ Binning.cc(107,5) ]
+LOOP END
+===========================================================================
+
+Begin optimization report for: BinParticles_2(const InputDataType &, BinsType &)
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at Binning.cc(124,5)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at Binning.cc(125,7)
+      remark #15389: vectorization support: reference threadPrivateBins has unaligned access   [ Binning.cc(126,2) ]
+      remark #15381: vectorization support: unaligned access used inside loop body
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+      remark #15305: vectorization support: vector length 4
+      remark #15399: vectorization support: unroll factor set to 2
+      remark #15309: vectorization support: normalized vectorization overhead 0.300
+      remark #15451: unmasked unaligned unit stride stores: 1 
+      remark #15475: --- begin vector loop cost summary ---
+      remark #15476: scalar loop cost: 2 
+      remark #15477: vector loop cost: 1.250 
+      remark #15478: estimated potential speedup: 1.170 
+      remark #15488: --- end vector loop cost summary ---
+   LOOP END
+
+   LOOP BEGIN at Binning.cc(125,7)
+   LOOP END
+
+   LOOP BEGIN at Binning.cc(125,7)
+   LOOP END
+
+   LOOP BEGIN at Binning.cc(125,7)
+   LOOP END
+
+   LOOP BEGIN at Binning.cc(125,7)
+   LOOP END
+
+   LOOP BEGIN at Binning.cc(125,7)
+   LOOP END
+
+   LOOP BEGIN at Binning.cc(125,7)
+   LOOP END
+
+   LOOP BEGIN at Binning.cc(125,7)
+   LOOP END
+
+   LOOP BEGIN at Binning.cc(125,7)
+   LOOP END
+
+   LOOP BEGIN at Binning.cc(125,7)
+   LOOP END
+LOOP END
+
+LOOP BEGIN at Binning.cc(130,5)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization
+   remark #15346: vector dependence: assumed FLOW dependence between threadPrivateBins line 141 and threadPrivateBins line 141
+   remark #15346: vector dependence: assumed ANTI dependence between threadPrivateBins line 141 and threadPrivateBins line 141
+LOOP END
+
+LOOP BEGIN at Binning.cc(145,5)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at Binning.cc(146,7)
+      remark #15389: vectorization support: reference outputBins has unaligned access   [ Binning.cc(148,2) ]
+      remark #15389: vectorization support: reference outputBins has unaligned access   [ Binning.cc(148,2) ]
+      remark #15389: vectorization support: reference threadPrivateBins has unaligned access   [ Binning.cc(148,2) ]
+      remark #15381: vectorization support: unaligned access used inside loop body
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+      remark #15305: vectorization support: vector length 4
+      remark #15399: vectorization support: unroll factor set to 2
+      remark #15309: vectorization support: normalized vectorization overhead 0.409
+      remark #15450: unmasked unaligned unit stride loads: 2 
+      remark #15451: unmasked unaligned unit stride stores: 1 
+      remark #15475: --- begin vector loop cost summary ---
+      remark #15476: scalar loop cost: 6 
+      remark #15477: vector loop cost: 2.750 
+      remark #15478: estimated potential speedup: 1.390 
+      remark #15488: --- end vector loop cost summary ---
+   LOOP END
+
+   LOOP BEGIN at Binning.cc(146,7)
+   LOOP END
+
+   LOOP BEGIN at Binning.cc(146,7)
+   LOOP END
+
+   LOOP BEGIN at Binning.cc(146,7)
+   LOOP END
+
+   LOOP BEGIN at Binning.cc(146,7)
+   LOOP END
+
+   LOOP BEGIN at Binning.cc(146,7)
+   LOOP END
+
+   LOOP BEGIN at Binning.cc(146,7)
+   LOOP END
+
+   LOOP BEGIN at Binning.cc(146,7)
+   LOOP END
+
+   LOOP BEGIN at Binning.cc(146,7)
+   LOOP END
+
+   LOOP BEGIN at Binning.cc(146,7)
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: BinParticles_3(const InputDataType &, BinsType &)
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at Binning.cc(167,5)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at Binning.cc(168,7)
+      remark #15389: vectorization support: reference threadPrivateBins has unaligned access   [ Binning.cc(169,2) ]
+      remark #15381: vectorization support: unaligned access used inside loop body
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+      remark #15305: vectorization support: vector length 4
+      remark #15399: vectorization support: unroll factor set to 2
+      remark #15309: vectorization support: normalized vectorization overhead 0.300
+      remark #15451: unmasked unaligned unit stride stores: 1 
+      remark #15475: --- begin vector loop cost summary ---
+      remark #15476: scalar loop cost: 2 
+      remark #15477: vector loop cost: 1.250 
+      remark #15478: estimated potential speedup: 1.170 
+      remark #15488: --- end vector loop cost summary ---
+   LOOP END
+
+   LOOP BEGIN at Binning.cc(168,7)
+   LOOP END
+
+   LOOP BEGIN at Binning.cc(168,7)
+   LOOP END
+
+   LOOP BEGIN at Binning.cc(168,7)
+   LOOP END
+
+   LOOP BEGIN at Binning.cc(168,7)
+   LOOP END
+
+   LOOP BEGIN at Binning.cc(168,7)
+   LOOP END
+
+   LOOP BEGIN at Binning.cc(168,7)
+   LOOP END
+
+   LOOP BEGIN at Binning.cc(168,7)
+   LOOP END
+
+   LOOP BEGIN at Binning.cc(168,7)
+   LOOP END
+
+   LOOP BEGIN at Binning.cc(168,7)
+   LOOP END
+LOOP END
+
+LOOP BEGIN at Binning.cc(173,5)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at Binning.cc(182,7)
+      remark #15389: vectorization support: reference phi has unaligned access   [ Binning.cc(185,30) ]
+      remark #15389: vectorization support: reference r has unaligned access   [ Binning.cc(185,30) ]
+      remark #15388: vectorization support: reference iY has aligned access   [ Binning.cc(189,2) ]
+      remark #15389: vectorization support: reference r has unaligned access   [ Binning.cc(184,23) ]
+      remark #15388: vectorization support: reference iX has aligned access   [ Binning.cc(188,2) ]
+      remark #15381: vectorization support: unaligned access used inside loop body
+      remark #15305: vectorization support: vector length 8
+      remark #15309: vectorization support: normalized vectorization overhead 0.097
+      remark #15300: LOOP WAS VECTORIZED
+      remark #15449: unmasked aligned unit stride stores: 2 
+      remark #15450: unmasked unaligned unit stride loads: 2 
+      remark #15475: --- begin vector loop cost summary ---
+      remark #15476: scalar loop cost: 238 
+      remark #15477: vector loop cost: 12.870 
+      remark #15478: estimated potential speedup: 17.620 
+      remark #15482: vectorized math library calls: 1 
+      remark #15487: type converts: 2 
+      remark #15488: --- end vector loop cost summary ---
+   LOOP END
+
+   LOOP BEGIN at Binning.cc(193,7)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization
+      remark #15346: vector dependence: assumed FLOW dependence between threadPrivateBins line 194 and threadPrivateBins line 194
+      remark #15346: vector dependence: assumed ANTI dependence between threadPrivateBins line 194 and threadPrivateBins line 194
+   LOOP END
+LOOP END
+
+LOOP BEGIN at Binning.cc(199,5)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at Binning.cc(200,7)
+      remark #15389: vectorization support: reference outputBins has unaligned access   [ Binning.cc(202,2) ]
+      remark #15389: vectorization support: reference outputBins has unaligned access   [ Binning.cc(202,2) ]
+      remark #15389: vectorization support: reference threadPrivateBins has unaligned access   [ Binning.cc(202,2) ]
+      remark #15381: vectorization support: unaligned access used inside loop body
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+      remark #15305: vectorization support: vector length 4
+      remark #15399: vectorization support: unroll factor set to 2
+      remark #15309: vectorization support: normalized vectorization overhead 0.409
+      remark #15450: unmasked unaligned unit stride loads: 2 
+      remark #15451: unmasked unaligned unit stride stores: 1 
+      remark #15475: --- begin vector loop cost summary ---
+      remark #15476: scalar loop cost: 6 
+      remark #15477: vector loop cost: 2.750 
+      remark #15478: estimated potential speedup: 1.390 
+      remark #15488: --- end vector loop cost summary ---
+   LOOP END
+
+   LOOP BEGIN at Binning.cc(200,7)
+   LOOP END
+
+   LOOP BEGIN at Binning.cc(200,7)
+   LOOP END
+
+   LOOP BEGIN at Binning.cc(200,7)
+   LOOP END
+
+   LOOP BEGIN at Binning.cc(200,7)
+   LOOP END
+
+   LOOP BEGIN at Binning.cc(200,7)
+   LOOP END
+
+   LOOP BEGIN at Binning.cc(200,7)
+   LOOP END
+
+   LOOP BEGIN at Binning.cc(200,7)
+   LOOP END
+
+   LOOP BEGIN at Binning.cc(200,7)
+   LOOP END
+
+   LOOP BEGIN at Binning.cc(200,7)
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: BinParticles_4(const InputDataType &, BinsType &)
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at Binning.cc(220,5)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at Binning.cc(221,7)
+      remark #15389: vectorization support: reference threadPrivateBins has unaligned access   [ Binning.cc(222,2) ]
+      remark #15381: vectorization support: unaligned access used inside loop body
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+      remark #15305: vectorization support: vector length 4
+      remark #15399: vectorization support: unroll factor set to 2
+      remark #15309: vectorization support: normalized vectorization overhead 0.300
+      remark #15451: unmasked unaligned unit stride stores: 1 
+      remark #15475: --- begin vector loop cost summary ---
+      remark #15476: scalar loop cost: 2 
+      remark #15477: vector loop cost: 1.250 
+      remark #15478: estimated potential speedup: 1.170 
+      remark #15488: --- end vector loop cost summary ---
+   LOOP END
+
+   LOOP BEGIN at Binning.cc(221,7)
+   LOOP END
+
+   LOOP BEGIN at Binning.cc(221,7)
+   LOOP END
+
+   LOOP BEGIN at Binning.cc(221,7)
+   LOOP END
+
+   LOOP BEGIN at Binning.cc(221,7)
+   LOOP END
+
+   LOOP BEGIN at Binning.cc(221,7)
+   LOOP END
+
+   LOOP BEGIN at Binning.cc(221,7)
+   LOOP END
+
+   LOOP BEGIN at Binning.cc(221,7)
+   LOOP END
+
+   LOOP BEGIN at Binning.cc(221,7)
+   LOOP END
+
+   LOOP BEGIN at Binning.cc(221,7)
+   LOOP END
+LOOP END
+
+LOOP BEGIN at Binning.cc(226,5)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at Binning.cc(236,7)
+      remark #15388: vectorization support: reference phi has aligned access   [ Binning.cc(238,23) ]
+      remark #15388: vectorization support: reference r has aligned access   [ Binning.cc(238,23) ]
+      remark #15388: vectorization support: reference r has aligned access   [ Binning.cc(239,30) ]
+      remark #15388: vectorization support: reference iX has aligned access   [ Binning.cc(242,2) ]
+      remark #15388: vectorization support: reference iY has aligned access   [ Binning.cc(243,2) ]
+      remark #15305: vectorization support: vector length 8
+      remark #15309: vectorization support: normalized vectorization overhead 0.040
+      remark #15300: LOOP WAS VECTORIZED
+      remark #15448: unmasked aligned unit stride loads: 3 
+      remark #15449: unmasked aligned unit stride stores: 2 
+      remark #15475: --- begin vector loop cost summary ---
+      remark #15476: scalar loop cost: 238 
+      remark #15477: vector loop cost: 12.620 
+      remark #15478: estimated potential speedup: 18.480 
+      remark #15482: vectorized math library calls: 1 
+      remark #15487: type converts: 2 
+      remark #15488: --- end vector loop cost summary ---
+   LOOP END
+
+   LOOP BEGIN at Binning.cc(247,7)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization
+      remark #15346: vector dependence: assumed FLOW dependence between threadPrivateBins line 248 and threadPrivateBins line 248
+      remark #15346: vector dependence: assumed ANTI dependence between threadPrivateBins line 248 and threadPrivateBins line 248
+   LOOP END
+LOOP END
+
+LOOP BEGIN at Binning.cc(253,5)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at Binning.cc(254,7)
+      remark #15389: vectorization support: reference outputBins has unaligned access   [ Binning.cc(256,2) ]
+      remark #15389: vectorization support: reference outputBins has unaligned access   [ Binning.cc(256,2) ]
+      remark #15389: vectorization support: reference threadPrivateBins has unaligned access   [ Binning.cc(256,2) ]
+      remark #15381: vectorization support: unaligned access used inside loop body
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+      remark #15305: vectorization support: vector length 4
+      remark #15399: vectorization support: unroll factor set to 2
+      remark #15309: vectorization support: normalized vectorization overhead 0.409
+      remark #15450: unmasked unaligned unit stride loads: 2 
+      remark #15451: unmasked unaligned unit stride stores: 1 
+      remark #15475: --- begin vector loop cost summary ---
+      remark #15476: scalar loop cost: 6 
+      remark #15477: vector loop cost: 2.750 
+      remark #15478: estimated potential speedup: 1.390 
+      remark #15488: --- end vector loop cost summary ---
+   LOOP END
+
+   LOOP BEGIN at Binning.cc(254,7)
+   LOOP END
+
+   LOOP BEGIN at Binning.cc(254,7)
+   LOOP END
+
+   LOOP BEGIN at Binning.cc(254,7)
+   LOOP END
+
+   LOOP BEGIN at Binning.cc(254,7)
+   LOOP END
+
+   LOOP BEGIN at Binning.cc(254,7)
+   LOOP END
+
+   LOOP BEGIN at Binning.cc(254,7)
+   LOOP END
+
+   LOOP BEGIN at Binning.cc(254,7)
+   LOOP END
+
+   LOOP BEGIN at Binning.cc(254,7)
+   LOOP END
+
+   LOOP BEGIN at Binning.cc(254,7)
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: BinParticles_5(const InputDataType &, BinsType &)
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at Binning.cc(320,5)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at Binning.cc(321,7)
+      remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+      LOOP BEGIN at Binning.cc(319,3)
+         remark #15389: vectorization support: reference globalBins has unaligned access   [ Binning.cc(322,2) ]
+         remark #15381: vectorization support: unaligned access used inside loop body
+         remark #15305: vectorization support: vector length 4
+         remark #15309: vectorization support: normalized vectorization overhead 3.143
+         remark #15315: loop was not vectorized: low trip count
+         remark #15450: unmasked unaligned unit stride loads: 1 
+         remark #15475: --- begin vector loop cost summary ---
+         remark #15476: scalar loop cost: 3 
+         remark #15477: vector loop cost: 1.750 
+         remark #15478: estimated potential speedup: 0.710 
+         remark #15488: --- end vector loop cost summary ---
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at Binning.cc(286,5)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at Binning.cc(287,7)
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+      remark #15329: vectorization support: scatter was emulated for the variable globalBins:  strided by non-constant value   [ Binning.cc(288,2) ]
+      remark #15305: vectorization support: vector length 4
+      remark #15399: vectorization support: unroll factor set to 2
+      remark #15462: unmasked indexed (or gather) loads: 1 
+      remark #15475: --- begin vector loop cost summary ---
+      remark #15476: scalar loop cost: 2 
+      remark #15477: vector loop cost: 3.000 
+      remark #15478: estimated potential speedup: 0.710 
+      remark #15488: --- end vector loop cost summary ---
+   LOOP END
+
+   LOOP BEGIN at Binning.cc(287,7)
+   LOOP END
+
+   LOOP BEGIN at Binning.cc(287,7)
+   LOOP END
+
+   LOOP BEGIN at Binning.cc(287,7)
+   LOOP END
+
+   LOOP BEGIN at Binning.cc(287,7)
+   LOOP END
+
+   LOOP BEGIN at Binning.cc(287,7)
+   LOOP END
+
+   LOOP BEGIN at Binning.cc(287,7)
+   LOOP END
+
+   LOOP BEGIN at Binning.cc(287,7)
+   LOOP END
+
+   LOOP BEGIN at Binning.cc(287,7)
+   LOOP END
+
+   LOOP BEGIN at Binning.cc(287,7)
+   LOOP END
+LOOP END
+
+LOOP BEGIN at Binning.cc(292,5)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at Binning.cc(302,7)
+      remark #15388: vectorization support: reference phi has aligned access   [ Binning.cc(304,23) ]
+      remark #15388: vectorization support: reference r has aligned access   [ Binning.cc(304,23) ]
+      remark #15388: vectorization support: reference r has aligned access   [ Binning.cc(305,30) ]
+      remark #15388: vectorization support: reference iX has aligned access   [ Binning.cc(308,2) ]
+      remark #15388: vectorization support: reference iY has aligned access   [ Binning.cc(309,2) ]
+      remark #15305: vectorization support: vector length 8
+      remark #15309: vectorization support: normalized vectorization overhead 0.040
+      remark #15300: LOOP WAS VECTORIZED
+      remark #15448: unmasked aligned unit stride loads: 3 
+      remark #15449: unmasked aligned unit stride stores: 2 
+      remark #15475: --- begin vector loop cost summary ---
+      remark #15476: scalar loop cost: 238 
+      remark #15477: vector loop cost: 12.620 
+      remark #15478: estimated potential speedup: 18.480 
+      remark #15482: vectorized math library calls: 1 
+      remark #15487: type converts: 2 
+      remark #15488: --- end vector loop cost summary ---
+   LOOP END
+
+   LOOP BEGIN at Binning.cc(313,7)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization
+      remark #15346: vector dependence: assumed FLOW dependence between globalBins line 314 and globalBins line 314
+      remark #15346: vector dependence: assumed ANTI dependence between globalBins line 314 and globalBins line 314
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: BinParticles_6(const InputDataType &, BinsType &)
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at Binning.cc(381,5)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at Binning.cc(380,3)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at Binning.cc(382,7)
+         remark #15389: vectorization support: reference outputBins has unaligned access   [ Binning.cc(383,2) ]
+         remark #15389: vectorization support: reference outputBins has unaligned access   [ Binning.cc(383,2) ]
+         remark #15389: vectorization support: reference globalBins has unaligned access   [ Binning.cc(383,2) ]
+         remark #15381: vectorization support: unaligned access used inside loop body
+         remark #15305: vectorization support: vector length 8
+         remark #15309: vectorization support: normalized vectorization overhead 1.000
+         remark #15300: LOOP WAS VECTORIZED
+         remark #15450: unmasked unaligned unit stride loads: 2 
+         remark #15451: unmasked unaligned unit stride stores: 1 
+         remark #15475: --- begin vector loop cost summary ---
+         remark #15476: scalar loop cost: 6 
+         remark #15477: vector loop cost: 1.120 
+         remark #15478: estimated potential speedup: 2.000 
+         remark #15488: --- end vector loop cost summary ---
+      LOOP END
+
+      LOOP BEGIN at Binning.cc(382,7)
+      <Remainder loop for vectorization>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at Binning.cc(347,5)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at Binning.cc(348,7)
+      remark #15389: vectorization support: reference globalBins has unaligned access   [ Binning.cc(349,2) ]
+      remark #15381: vectorization support: unaligned access used inside loop body
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+      remark #15305: vectorization support: vector length 4
+      remark #15399: vectorization support: unroll factor set to 2
+      remark #15309: vectorization support: normalized vectorization overhead 0.250
+      remark #15451: unmasked unaligned unit stride stores: 1 
+      remark #15475: --- begin vector loop cost summary ---
+      remark #15476: scalar loop cost: 2 
+      remark #15477: vector loop cost: 1.500 
+      remark #15478: estimated potential speedup: 1.050 
+      remark #15488: --- end vector loop cost summary ---
+   LOOP END
+
+   LOOP BEGIN at Binning.cc(348,7)
+   LOOP END
+
+   LOOP BEGIN at Binning.cc(348,7)
+   LOOP END
+
+   LOOP BEGIN at Binning.cc(348,7)
+   LOOP END
+
+   LOOP BEGIN at Binning.cc(348,7)
+   LOOP END
+
+   LOOP BEGIN at Binning.cc(348,7)
+   LOOP END
+
+   LOOP BEGIN at Binning.cc(348,7)
+   LOOP END
+
+   LOOP BEGIN at Binning.cc(348,7)
+   LOOP END
+
+   LOOP BEGIN at Binning.cc(348,7)
+   LOOP END
+
+   LOOP BEGIN at Binning.cc(348,7)
+   LOOP END
+LOOP END
+
+LOOP BEGIN at Binning.cc(353,5)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at Binning.cc(363,7)
+      remark #15388: vectorization support: reference phi has aligned access   [ Binning.cc(365,23) ]
+      remark #15388: vectorization support: reference r has aligned access   [ Binning.cc(365,23) ]
+      remark #15388: vectorization support: reference r has aligned access   [ Binning.cc(366,30) ]
+      remark #15388: vectorization support: reference iX has aligned access   [ Binning.cc(369,2) ]
+      remark #15388: vectorization support: reference iY has aligned access   [ Binning.cc(370,2) ]
+      remark #15305: vectorization support: vector length 8
+      remark #15309: vectorization support: normalized vectorization overhead 0.040
+      remark #15300: LOOP WAS VECTORIZED
+      remark #15448: unmasked aligned unit stride loads: 3 
+      remark #15449: unmasked aligned unit stride stores: 2 
+      remark #15475: --- begin vector loop cost summary ---
+      remark #15476: scalar loop cost: 238 
+      remark #15477: vector loop cost: 12.620 
+      remark #15478: estimated potential speedup: 18.480 
+      remark #15482: vectorized math library calls: 1 
+      remark #15487: type converts: 2 
+      remark #15488: --- end vector loop cost summary ---
+   LOOP END
+
+   LOOP BEGIN at Binning.cc(374,7)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization
+      remark #15346: vector dependence: assumed FLOW dependence between globalBins line 375 and globalBins line 375
+      remark #15346: vector dependence: assumed ANTI dependence between globalBins line 375 and globalBins line 375
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: BinParticles_7(const InputDataType &, BinsType &)
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at Binning.cc(456,5)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at Binning.cc(455,3)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at Binning.cc(457,7)
+         remark #15389: vectorization support: reference outputBins has unaligned access   [ Binning.cc(458,4) ]
+         remark #15389: vectorization support: reference outputBins has unaligned access   [ Binning.cc(458,4) ]
+         remark #15389: vectorization support: reference globalBins has unaligned access   [ Binning.cc(458,4) ]
+         remark #15381: vectorization support: unaligned access used inside loop body
+         remark #15305: vectorization support: vector length 8
+         remark #15309: vectorization support: normalized vectorization overhead 1.000
+         remark #15300: LOOP WAS VECTORIZED
+         remark #15450: unmasked unaligned unit stride loads: 2 
+         remark #15451: unmasked unaligned unit stride stores: 1 
+         remark #15475: --- begin vector loop cost summary ---
+         remark #15476: scalar loop cost: 6 
+         remark #15477: vector loop cost: 1.120 
+         remark #15478: estimated potential speedup: 2.000 
+         remark #15488: --- end vector loop cost summary ---
+      LOOP END
+
+      LOOP BEGIN at Binning.cc(457,7)
+      <Remainder loop for vectorization>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at Binning.cc(422,5)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at Binning.cc(423,7)
+      remark #15389: vectorization support: reference myBins has unaligned access   [ Binning.cc(424,2) ]
+      remark #15381: vectorization support: unaligned access used inside loop body
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+      remark #15305: vectorization support: vector length 4
+      remark #15399: vectorization support: unroll factor set to 2
+      remark #15309: vectorization support: normalized vectorization overhead 0.250
+      remark #15451: unmasked unaligned unit stride stores: 1 
+      remark #15475: --- begin vector loop cost summary ---
+      remark #15476: scalar loop cost: 2 
+      remark #15477: vector loop cost: 1.500 
+      remark #15478: estimated potential speedup: 1.050 
+      remark #15488: --- end vector loop cost summary ---
+   LOOP END
+
+   LOOP BEGIN at Binning.cc(423,7)
+   LOOP END
+
+   LOOP BEGIN at Binning.cc(423,7)
+   LOOP END
+
+   LOOP BEGIN at Binning.cc(423,7)
+   LOOP END
+
+   LOOP BEGIN at Binning.cc(423,7)
+   LOOP END
+
+   LOOP BEGIN at Binning.cc(423,7)
+   LOOP END
+
+   LOOP BEGIN at Binning.cc(423,7)
+   LOOP END
+
+   LOOP BEGIN at Binning.cc(423,7)
+   LOOP END
+
+   LOOP BEGIN at Binning.cc(423,7)
+   LOOP END
+
+   LOOP BEGIN at Binning.cc(423,7)
+   LOOP END
+LOOP END
+
+LOOP BEGIN at Binning.cc(428,5)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at Binning.cc(438,7)
+      remark #15388: vectorization support: reference phi has aligned access   [ Binning.cc(440,23) ]
+      remark #15388: vectorization support: reference r has aligned access   [ Binning.cc(440,23) ]
+      remark #15388: vectorization support: reference r has aligned access   [ Binning.cc(441,30) ]
+      remark #15388: vectorization support: reference iX has aligned access   [ Binning.cc(444,2) ]
+      remark #15388: vectorization support: reference iY has aligned access   [ Binning.cc(445,2) ]
+      remark #15305: vectorization support: vector length 8
+      remark #15309: vectorization support: normalized vectorization overhead 0.040
+      remark #15300: LOOP WAS VECTORIZED
+      remark #15448: unmasked aligned unit stride loads: 3 
+      remark #15449: unmasked aligned unit stride stores: 2 
+      remark #15475: --- begin vector loop cost summary ---
+      remark #15476: scalar loop cost: 238 
+      remark #15477: vector loop cost: 12.620 
+      remark #15478: estimated potential speedup: 18.480 
+      remark #15482: vectorized math library calls: 1 
+      remark #15487: type converts: 2 
+      remark #15488: --- end vector loop cost summary ---
+   LOOP END
+
+   LOOP BEGIN at Binning.cc(449,7)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization
+      remark #15346: vector dependence: assumed FLOW dependence between myBins line 450 and myBins line 450
+      remark #15346: vector dependence: assumed ANTI dependence between myBins line 450 and myBins line 450
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: ValidateResults(const BinsType &, const BinsType &)
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at Binning.cc(472,3)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at Binning.cc(473,5)
+      remark #15305: vectorization support: vector length 8
+      remark #15309: vectorization support: normalized vectorization overhead 0.303
+      remark #15300: LOOP WAS VECTORIZED
+      remark #15450: unmasked unaligned unit stride loads: 2 
+      remark #15475: --- begin vector loop cost summary ---
+      remark #15476: scalar loop cost: 27 
+      remark #15477: vector loop cost: 4.120 
+      remark #15478: estimated potential speedup: 2.780 
+      remark #15487: type converts: 2 
+      remark #15488: --- end vector loop cost summary ---
+   LOOP END
+
+   LOOP BEGIN at Binning.cc(473,5)
+   <Remainder loop for vectorization>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at Binning.cc(479,5)
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+
+   LOOP BEGIN at Binning.cc(481,2)
+      remark #15382: vectorization support: call to function printf(const char *, ...) cannot be vectorized   [ Binning.cc(482,4) ]
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization
+   LOOP END
+LOOP END
+===========================================================================

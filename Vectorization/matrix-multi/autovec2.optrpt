@@ -1,0 +1,153 @@
+Intel(R) Advisor can now assist with vectorization and show optimization
+  report messages with your source code.
+See "https://software.intel.com/en-us/intel-advisor-xe" for details.
+
+
+Begin optimization report for: main()
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vec.c(10,3) inlined into vec.c(28,3)
+   remark #15388: vectorization support: reference A has aligned access   [ vec.c(11,5) ]
+   remark #15388: vectorization support: reference B has aligned access   [ vec.c(12,5) ]
+   remark #15305: vectorization support: vector length 4
+   remark #15399: vectorization support: unroll factor set to 4
+   remark #15309: vectorization support: normalized vectorization overhead 0.036
+   remark #15300: LOOP WAS VECTORIZED
+   remark #15449: unmasked aligned unit stride stores: 2 
+   remark #15475: --- begin vector loop cost summary ---
+   remark #15476: scalar loop cost: 7 
+   remark #15477: vector loop cost: 1.750 
+   remark #15478: estimated potential speedup: 3.900 
+   remark #15487: type converts: 1 
+   remark #15488: --- end vector loop cost summary ---
+LOOP END
+
+LOOP BEGIN at vec.c(10,3) inlined into vec.c(28,3)
+<Remainder loop for vectorization>
+   remark #15388: vectorization support: reference A has aligned access   [ vec.c(11,5) ]
+   remark #15388: vectorization support: reference B has aligned access   [ vec.c(12,5) ]
+   remark #15305: vectorization support: vector length 4
+   remark #15309: vectorization support: normalized vectorization overhead 1.571
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vec.c(48,2)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at vec.c(50,2)
+      remark #15329: vectorization support: scatter was emulated for the variable aosobj.x:  strided by 3   [ vec.c(51,4) ]
+      remark #15329: vectorization support: scatter was emulated for the variable aosobj.y:  strided by 3   [ vec.c(52,4) ]
+      remark #15329: vectorization support: scatter was emulated for the variable aosobj.z:  strided by 3   [ vec.c(53,4) ]
+      remark #15305: vectorization support: vector length 16
+      remark #15309: vectorization support: normalized vectorization overhead 0.114
+      remark #15418: vectorization support: number of FP down converts: double precision to single precision 1   [ vec.c(51,4) ]
+      remark #15418: vectorization support: number of FP down converts: double precision to single precision 1   [ vec.c(52,4) ]
+      remark #15418: vectorization support: number of FP down converts: double precision to single precision 1   [ vec.c(53,4) ]
+      remark #15300: LOOP WAS VECTORIZED
+      remark #15462: unmasked indexed (or gather) loads: 3 
+      remark #15475: --- begin vector loop cost summary ---
+      remark #15476: scalar loop cost: 24 
+      remark #15477: vector loop cost: 10.930 
+      remark #15478: estimated potential speedup: 2.190 
+      remark #15487: type converts: 6 
+      remark #15488: --- end vector loop cost summary ---
+   LOOP END
+
+   LOOP BEGIN at vec.c(55,2)
+      remark #15388: vectorization support: reference soaobj.x has aligned access   [ vec.c(56,4) ]
+      remark #15388: vectorization support: reference soaobj.y has aligned access   [ vec.c(57,4) ]
+      remark #15388: vectorization support: reference soaobj.z has aligned access   [ vec.c(58,4) ]
+      remark #15305: vectorization support: vector length 8
+      remark #15309: vectorization support: normalized vectorization overhead 0.276
+      remark #15418: vectorization support: number of FP down converts: double precision to single precision 1   [ vec.c(56,4) ]
+      remark #15418: vectorization support: number of FP down converts: double precision to single precision 1   [ vec.c(58,4) ]
+      remark #15300: LOOP WAS VECTORIZED
+      remark #15449: unmasked aligned unit stride stores: 3 
+      remark #15475: --- begin vector loop cost summary ---
+      remark #15476: scalar loop cost: 21 
+      remark #15477: vector loop cost: 3.620 
+      remark #15478: estimated potential speedup: 5.790 
+      remark #15487: type converts: 4 
+      remark #15488: --- end vector loop cost summary ---
+   LOOP END
+
+   LOOP BEGIN at vec.c(63,2)
+   <Distributed chunk1>
+      remark #15305: vectorization support: vector length 2
+      remark #15399: vectorization support: unroll factor set to 4
+      remark #15309: vectorization support: normalized vectorization overhead 0.016
+      remark #15417: vectorization support: number of FP up converts: single precision to double precision 1   [ vec.c(64,4) ]
+      remark #15418: vectorization support: number of FP down converts: double precision to single precision 1   [ vec.c(64,4) ]
+      remark #15300: LOOP WAS VECTORIZED
+      remark #15460: masked strided loads: 2 
+      remark #15462: unmasked indexed (or gather) loads: 1 
+      remark #15475: --- begin vector loop cost summary ---
+      remark #15476: scalar loop cost: 10 
+      remark #15477: vector loop cost: 8.000 
+      remark #15478: estimated potential speedup: 1.240 
+      remark #15487: type converts: 2 
+      remark #15488: --- end vector loop cost summary ---
+   LOOP END
+
+   LOOP BEGIN at vec.c(67,2)
+   LOOP END
+
+   LOOP BEGIN at vec.c(63,2)
+   <Distributed chunk2>
+      remark #15388: vectorization support: reference soaobj.x has aligned access   [ vec.c(69,4) ]
+      remark #15388: vectorization support: reference soaobj.y has aligned access   [ vec.c(69,4) ]
+      remark #15388: vectorization support: reference soaobj.z has aligned access   [ vec.c(69,4) ]
+      remark #15305: vectorization support: vector length 8
+      remark #15399: vectorization support: unroll factor set to 4
+      remark #15309: vectorization support: normalized vectorization overhead 0.036
+      remark #15417: vectorization support: number of FP up converts: single precision to double precision 1   [ vec.c(69,4) ]
+      remark #15418: vectorization support: number of FP down converts: double precision to single precision 1   [ vec.c(69,4) ]
+      remark #15300: LOOP WAS VECTORIZED
+      remark #15448: unmasked aligned unit stride loads: 2 
+      remark #15449: unmasked aligned unit stride stores: 1 
+      remark #15475: --- begin vector loop cost summary ---
+      remark #15476: scalar loop cost: 10 
+      remark #15477: vector loop cost: 1.750 
+      remark #15478: estimated potential speedup: 5.710 
+      remark #15487: type converts: 2 
+      remark #15488: --- end vector loop cost summary ---
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: foo(int)
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at vec.c(10,3)
+   remark #15388: vectorization support: reference A has aligned access   [ vec.c(11,5) ]
+   remark #15388: vectorization support: reference B has aligned access   [ vec.c(12,5) ]
+   remark #15305: vectorization support: vector length 4
+   remark #15399: vectorization support: unroll factor set to 4
+   remark #15309: vectorization support: normalized vectorization overhead 0.036
+   remark #15300: LOOP WAS VECTORIZED
+   remark #15449: unmasked aligned unit stride stores: 2 
+   remark #15475: --- begin vector loop cost summary ---
+   remark #15476: scalar loop cost: 7 
+   remark #15477: vector loop cost: 1.750 
+   remark #15478: estimated potential speedup: 3.900 
+   remark #15487: type converts: 1 
+   remark #15488: --- end vector loop cost summary ---
+LOOP END
+
+LOOP BEGIN at vec.c(10,3)
+<Remainder loop for vectorization>
+   remark #15388: vectorization support: reference A has aligned access   [ vec.c(11,5) ]
+   remark #15388: vectorization support: reference B has aligned access   [ vec.c(12,5) ]
+   remark #15305: vectorization support: vector length 4
+   remark #15309: vectorization support: normalized vectorization overhead 1.571
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at vec.c(10,3)
+<Remainder loop for vectorization>
+LOOP END
+===========================================================================
