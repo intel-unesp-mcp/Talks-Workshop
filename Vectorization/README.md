@@ -12,7 +12,7 @@ different strides on the same code
 icc vec.c -o vec -O3
 ```
 
-optimization O3 ->
+optimization with O3
 
 ```
 icc autoO3.c -o autoO3 -O0
@@ -52,6 +52,8 @@ LOOP BEGIN at autoO3.c(10,3)
    LOOP END
 LOOP END
 ```
+
+loops that auto vectorize
 
 ```
 icc autovec.c -o autovec -vec-report=6
