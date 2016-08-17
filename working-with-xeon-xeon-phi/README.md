@@ -12,6 +12,8 @@ icc helloWorld.c -o helloWorld
 ```
 icc helloWorld.c -o helloWorld.mic -mmic
 micnativeloadex helloWorld.mic
+ssh mic0 
+./helloWorld.mic
 ```
 
 # Compile and running for Intel Xeon offloading to Xeon Phi
