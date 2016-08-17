@@ -1,13 +1,16 @@
 Memory Access Optimization
 
 Padding
-
+```
 icc padd.c -o padd
 ./padd
+```
 
 different strides on the same code
 
+```
 icc vec.c -o vec -O3
+```
 
 auto-vectozation
 
