@@ -1,0 +1,133 @@
+Intel(R) Advisor can now assist with vectorization and show optimization
+  report messages with your source code.
+See "https://software.intel.com/en-us/intel-advisor-xe" for details.
+
+
+Begin optimization report for: main()
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at novec.c(29,3)
+<Peeled loop for vectorization>
+LOOP END
+
+LOOP BEGIN at novec.c(29,3)
+   remark #15388: vectorization support: reference A has aligned access   [ novec.c(30,5) ]
+   remark #15388: vectorization support: reference B has aligned access   [ novec.c(31,5) ]
+   remark #15388: vectorization support: reference C has aligned access   [ novec.c(32,5) ]
+   remark #15305: vectorization support: vector length 4
+   remark #15399: vectorization support: unroll factor set to 4
+   remark #15300: LOOP WAS VECTORIZED
+   remark #15449: unmasked aligned unit stride stores: 3 
+   remark #15475: --- begin vector loop cost summary ---
+   remark #15476: scalar loop cost: 6 
+   remark #15477: vector loop cost: 4.500 
+   remark #15478: estimated potential speedup: 1.330 
+   remark #15488: --- end vector loop cost summary ---
+LOOP END
+
+LOOP BEGIN at novec.c(29,3)
+<Remainder loop for vectorization>
+   remark #15388: vectorization support: reference A has aligned access   [ novec.c(30,5) ]
+   remark #15388: vectorization support: reference B has aligned access   [ novec.c(31,5) ]
+   remark #15388: vectorization support: reference C has aligned access   [ novec.c(32,5) ]
+   remark #15305: vectorization support: vector length 4
+   remark #15309: vectorization support: normalized vectorization overhead 0.667
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at novec.c(35,3)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at novec.c(39,3)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization
+      remark #15346: vector dependence: assumed FLOW dependence between A line 40 and A line 40
+      remark #15346: vector dependence: assumed ANTI dependence between A line 40 and A line 40
+   LOOP END
+
+   LOOP BEGIN at novec.c(39,3)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at novec.c(43,3)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization
+      remark #15346: vector dependence: assumed FLOW dependence between A line 44 and A line 44
+      remark #15346: vector dependence: assumed ANTI dependence between A line 44 and A line 44
+   LOOP END
+
+   LOOP BEGIN at novec.c(43,3)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at novec.c(46,3)
+      remark #15389: vectorization support: reference B has unaligned access   [ novec.c(47,5) ]
+      remark #15389: vectorization support: reference C has unaligned access   [ novec.c(47,5) ]
+      remark #15381: vectorization support: unaligned access used inside loop body
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+      remark #15329: vectorization support: scatter was emulated for the variable A:  indirect access    [ novec.c(47,5) ]
+      remark #15328: vectorization support: gather was emulated for the variable B:  indirect access    [ novec.c(47,14) ]
+      remark #15305: vectorization support: vector length 4
+      remark #15399: vectorization support: unroll factor set to 4
+      remark #15309: vectorization support: normalized vectorization overhead 0.008
+      remark #15450: unmasked unaligned unit stride loads: 2 
+      remark #15458: masked indexed (or gather) loads: 1 
+      remark #15459: masked indexed (or scatter) stores: 1 
+      remark #15475: --- begin vector loop cost summary ---
+      remark #15476: scalar loop cost: 8 
+      remark #15477: vector loop cost: 22.750 
+      remark #15478: estimated potential speedup: 0.350 
+      remark #15488: --- end vector loop cost summary ---
+   LOOP END
+
+   LOOP BEGIN at novec.c(46,3)
+   <Remainder>
+   LOOP END
+
+   LOOP BEGIN at novec.c(49,3)
+      remark #15389: vectorization support: reference B has unaligned access   [ novec.c(50,11) ]
+      remark #15389: vectorization support: reference A has unaligned access   [ novec.c(50,5) ]
+      remark #15381: vectorization support: unaligned access used inside loop body
+      remark #15305: vectorization support: vector length 4
+      remark #15309: vectorization support: normalized vectorization overhead 0.016
+      remark #15301: OUTER LOOP WAS VECTORIZED
+      remark #15450: unmasked unaligned unit stride loads: 1 
+      remark #15451: unmasked unaligned unit stride stores: 1 
+      remark #15475: --- begin vector loop cost summary ---
+      remark #15476: scalar loop cost: 255 
+      remark #15477: vector loop cost: 137.500 
+      remark #15478: estimated potential speedup: 1.850 
+      remark #15482: vectorized math library calls: 4 
+      remark #15487: type converts: 6 
+      remark #15488: --- end vector loop cost summary ---
+
+      LOOP BEGIN at novec.c(11,5) inlined into novec.c(50,11)
+         remark #15344: loop was not vectorized: vector dependence prevents vectorization
+         remark #15346: vector dependence: assumed FLOW dependence between aux line 12 and aux line 12
+         remark #15346: vector dependence: assumed ANTI dependence between aux line 12 and aux line 12
+         remark #15346: vector dependence: assumed ANTI dependence between aux line 12 and aux line 12
+         remark #15548: loop was vectorized along with the outer loop
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at novec.c(49,3)
+   <Remainder loop for vectorization>
+
+      LOOP BEGIN at novec.c(11,5) inlined into novec.c(50,11)
+         remark #25460: No loop optimizations reported
+      LOOP END
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: foo(int)
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at novec.c(11,5)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization
+   remark #15346: vector dependence: assumed FLOW dependence between aux line 12 and aux line 12
+   remark #15346: vector dependence: assumed ANTI dependence between aux line 12 and aux line 12
+LOOP END
+===========================================================================
