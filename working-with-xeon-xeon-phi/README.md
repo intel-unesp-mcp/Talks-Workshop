@@ -20,14 +20,14 @@ micnativeloadex helloWorld.mic
 icc helloWorldOffload.c -o helloWorldOffload
 ./helloWorldOffload
 ```
-# function offloading
+# Function offloading
 
 ```
 icc offloadFunction.c -o offloadFunction
 ./offloadFunction
 ```
 
-# function offloading
+# Function offloading
 
 ```
 icc offloadFunction2.c -o offloadFunction2
