@@ -3,47 +3,55 @@
 
 #pragma offload_attribute(push, target(mic))
 
-double A, B, C[100], sum;
+double A, B, sum, n;
+double C[10]; 
 
 void Function1() {
-    sum  = A + B;
-}
-/*
-void Function2() {
   int cont;
-  int n=100;
 
   for (cont=0; cont<n; cont++)
-    C[cont] += sum;
-}*/
+    C[cont]=A + B;
+}
+
+void Function2() {
+  int cont;
+
+  for (cont=0; cont<n; cont++)
+    sum += C[cont];
+}
 
 #pragma offload_attribute(pop)
 
 int main(int argc, char * argv[])
 {
-  printf("Hello World from host!\n");
 
-  int cont;
-  int n=100;
+  n=10;
+  int cont, contRepetitions;
 
-  A=5;
-  B=2;
+  A = 1;
+  B = 1;
+
   for (cont=0; cont<n; cont++)
-    C[cont]=cont;
+    C[cont]=0;
 
-  #pragma offload target(mic:0) in (A, B) out (sum) 
+  for (cont=0; cont<n; cont++)
+    printf("before offload Function1() C[cont] %f  \n", C[cont]);
+
+  #pragma offload target(mic:0) in (A, B, n) inout (C) 
   {
     Function1();
   }
 
-  printf("sum %f \n", sum);
+  for (cont=0; cont<n; cont++)
+    printf("after offload Function1() C[cont] %f  \n", C[cont]);
 
-/*
-  #pragma offload target(mic:1) in (sum) out (C) 
+  printf("before second offload SUM %f \n", sum);
+
+  #pragma offload target(mic:1) in (n, C) out (sum) 
   {
     Function2();
   }
 
-  printf("C[22] %f \n", C[22]);
-*/
+  printf("after second offload SUM %f \n", sum);
+
 }

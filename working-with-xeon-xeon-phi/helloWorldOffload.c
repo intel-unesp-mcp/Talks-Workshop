@@ -12,6 +12,12 @@ int main() {
         fflush(0);
     }
 
+    #pragma offload target(mic:1)
+    {
+        printf("Co-Processor have %ld logical cores.\n",
+                sysconf(_SC_NPROCESSORS_ONLN )); 
+        fflush(0);
+    }
 
 
 }
