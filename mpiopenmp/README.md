@@ -12,6 +12,13 @@ Basic MPI Program (Device)
 mpiicc helloWorldMPI.c -o helloWorldMPI.mic -mmic
 mpirun -host mic0 -n 8 ./helloWorldMPI.mic
 ```
+
+Several hosts 
+
+```
+mpirun -host mic0 -n 8 ./helloWorldMPI.mic : -host mic1 -n 8 ./helloWorldMPI.mic
+```
+
 Vector Example
 
 ```
