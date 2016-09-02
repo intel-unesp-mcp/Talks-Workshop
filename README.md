@@ -13,11 +13,11 @@
   * Optimization O3 and vectorization report
   * Auto-vectorization
   * guided vectorization
-   * matrix
-   * Particle Binning
-   * Diffusion
-   * Interpolation
-   * Lattice Boltzmann
+    * matrix
+    * Particle Binning
+    * Diffusion
+    * Interpolation
+    * Lattice Boltzmann
  
 * OpenMP 4.0 (1:30)
   * OpenMP Sample Program
