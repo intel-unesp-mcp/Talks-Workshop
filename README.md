@@ -20,5 +20,13 @@
    * Lattice Boltzmann
  
 * OpenMP 4.0 (1:30)
+  * OpenMP Sample Program
+  * Affinity
+  * Vectorization
+  * Offload
+   * Target
+   * Target Update
+  * N-Body
+
 * MPI/OpenMP (1:30) 
 * Daal (1:00)
