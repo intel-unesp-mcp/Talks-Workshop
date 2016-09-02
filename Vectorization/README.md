@@ -1,14 +1,3 @@
-advisor (matrix)
-padding
-stride-test
-O3
-  autoO3
-vecreport
-  autovec
-  novec
-guided vectorization
-  matrix
-
 advisor
 
 ```
