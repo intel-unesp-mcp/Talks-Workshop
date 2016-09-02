@@ -15,7 +15,7 @@ icc padd.c -o padd
 Different strides on the same code
 
 ```
-icc stride-test.c -o stride-test -O3
+icc stride-test.c -o stride-test -g
 ```
 
 optimization with O3
