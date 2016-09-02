@@ -3,12 +3,12 @@
 Demonstrations <p>
 
 * OpenMP Sample Program
+* Suitability Report 
+* affinity
 * Vectorization
 * Offload
 * Target 
-* Target Data
 * Target Update
-* Thread League
 * N-Body 
 
 The examples are based on Matrix Multiplication Intel Vtune and lotsofcore book chapters.
@@ -87,6 +87,9 @@ hello from hostname phi02-mic0.ncc.unesp.br
 hello from hostname phi02-mic0.ncc.unesp.br
 sum of vector elements: 5789.473684
 ```
+
+Suitability Report 
+multiply2 version
 
 Thread Affinity
 
