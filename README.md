@@ -23,7 +23,7 @@
   * OpenMP Sample Program
   * Affinity
   * Vectorization
-   * Interpolation (Uniform Clause)
+    * Interpolation (Uniform Clause)
   * Offload
    * Target
    * Target Update
