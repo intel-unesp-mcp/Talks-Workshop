@@ -21,6 +21,7 @@
  
 * OpenMP 4.0
   * OpenMP Sample Program
+  * Suitability Report
   * Affinity
   * Vectorization
     * Interpolation (Uniform Clause)
