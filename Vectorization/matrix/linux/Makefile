@@ -34,8 +34,8 @@
 
 SHELL = /bin/sh
 
-PARAMODEL = -DUSE_THR	# Default parallelism using pthreads/Win threads
-#PARAMODEL = -DUSE_OMP -fopenmp	# Use OpenMP for multithreading
+#PARAMODEL = -DUSE_THR	# Default parallelism using pthreads/Win threads
+PARAMODEL = -DUSE_OMP -fopenmp	# Use OpenMP for multithreading
 
 GCC     = gcc
 ICC     = icc
