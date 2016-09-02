@@ -1,8 +1,5 @@
 # talks-source-code
 
-
-#Courses	
-
 * Hybrid parallel architecture (1:30)
   * Compile and running for Intel Xeon
   * Compile and running for Intel Xeon Phi
