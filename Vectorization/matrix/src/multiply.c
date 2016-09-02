@@ -20,6 +20,7 @@
 
 // matrix multiply routines
 #include "multiply.h"
+#include "advisor-annotate.h"
 
 #ifdef USE_MKL
 #include "mkl.h"
@@ -191,16 +192,23 @@ void multiply2(int msize, int tidx, int numt, TYPE a[][NUM], TYPE b[][NUM], TYPE
 {
 	int i,j,k;
 
-	// Parallel with merged outer loops
-	#pragma omp parallel for collapse (2)
+// Basic serial implementation
+    ANNOTATE_SITE_BEGIN( MySite1 );
     for(i=0; i<msize; i++) {
+      ANNOTATE_ITERATION_TASK( MyTask1 );
+      ANNOTATE_SITE_BEGIN( MySite2 );
+      for(k=0; k<msize; k++) {
+        ANNOTATE_ITERATION_TASK( MyTask2 );
+        #pragma ivdep
         for(j=0; j<msize; j++) {
-    	    for(k=0; k<msize; k++) {
 				c[i][j] = c[i][j] + a[i][k] * b[k][j];
 			}
 		}
+                ANNOTATE_SITE_END();
 	} 
+        ANNOTATE_SITE_END();
 }
+
 void multiply3(int msize, int tidx, int numt, TYPE a[][NUM], TYPE b[][NUM], TYPE c[][NUM], TYPE t[][NUM])
 {
 	int i,j,k;

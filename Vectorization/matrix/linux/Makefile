@@ -78,11 +78,11 @@ matrix.gcc: $(srcdir)/matrix.c $(srcdir)/multiply.c $(srcdir)/multiply.h $(srcdi
 
 
 matrix.icc: $(srcdir)/matrix.c $(srcdir)/multiply.c $(srcdir)/multiply.h $(srcdir)/util.c $(srcdir)/thrmodel.c
-	$(ICC) $(ICFLAGS) -c $(srcdir)/util.c -D_LINUX
-	$(ICC) $(ICFLAGS) -c $(srcdir)/thrmodel.c -D_LINUX
-	$(ICC) $(ICFLAGS) $(OPTFLAGS) -c $(srcdir)/multiply.c -D_LINUX
-	$(ICC) $(ICFLAGS) $(OPTFLAGS) -c $(srcdir)/matrix.c -D_LINUX
-	$(ICC) $(ICFLAGS) $(OBJS) -o $@ $(LDFLAGS)
+	$(ICC) $(ICFLAGS) -I/opt/intel/advisor_xe/include/ -c $(srcdir)/util.c -D_LINUX
+	$(ICC) $(ICFLAGS) -I/opt/intel/advisor_xe/include/ -c $(srcdir)/thrmodel.c -D_LINUX
+	$(ICC) $(ICFLAGS) $(OPTFLAGS) -I/opt/intel/advisor_xe/include/ -c $(srcdir)/multiply.c -D_LINUX
+	$(ICC) $(ICFLAGS) $(OPTFLAGS) -I/opt/intel/advisor_xe/include/  -c $(srcdir)/matrix.c -D_LINUX
+	$(ICC) $(ICFLAGS) $(OBJS) -I/opt/intel/advisor_xe/include/  -o $@ $(LDFLAGS)
 
 
 matrix.mic: $(srcdir)/matrix.c $(srcdir)/multiply.c $(srcdir)/multiply.h $(srcdir)/util.c $(srcdir)/thrmodel.c
