@@ -21,14 +21,15 @@
 #ifdef __MIC__
 #define MAXTHREADS 120
 //#define MAXTHREADS 180
-#define NUM 4096
+//#define NUM 10240
+#define NUM 8192
 //#define NUM 5120
 #define MATRIX_BLOCK_SIZE 64
 #else
 #define MAXTHREADS 36
 //#define MAXTHREADS 60
 //#define NUM 10240
-#define NUM 4096
+#define NUM 8192
 //#define NUM 512
 #define MATRIX_BLOCK_SIZE 64
 #endif
@@ -38,7 +39,7 @@ typedef TYPE array[NUM];
 
 // Select which multiply kernel to use via the following macro so that the
 // kernel being used can be reported when the test is run.
-#define MULTIPLY multiply8
+#define MULTIPLY multiply1
 /*
 #pragma omp declare target
 
@@ -53,6 +54,8 @@ typedef TYPE array[NUM];
   }
 #pragma omp end declare target
 */
+int rank;
+int size;
 
 extern void multiply0(int msize, int tidx, int numt, TYPE a[][NUM], TYPE b[][NUM], TYPE c[][NUM], TYPE t[][NUM]);
 extern void multiply1(int msize, int tidx, int numt, TYPE a[][NUM], TYPE b[][NUM], TYPE c[][NUM], TYPE t[][NUM]);

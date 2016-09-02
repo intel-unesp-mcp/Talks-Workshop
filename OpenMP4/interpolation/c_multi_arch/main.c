@@ -39,8 +39,6 @@
 
 #include <get_time.h>
 
-//#include "interpolate.h"
-
 extern const int steps;
 extern const int ARRAY_SIZE;
 
@@ -82,7 +80,7 @@ double Interpolate(double x, const point* vals){
 
 
 const int steps = 512;
-const int ARRAY_SIZE = 40480;
+const int ARRAY_SIZE = 504800;
 
 int main(int argc, char* argv[])
 {
@@ -90,11 +88,11 @@ int main(int argc, char* argv[])
     double src[ARRAY_SIZE] __attribute__((aligned(128)));
     double dst[ARRAY_SIZE] __attribute__((aligned(128)));
 	
-	double prev_val = 0.;
-	int ind = 0;
-	int i = 0;
+    double prev_val = 0.;
+    int ind = 0;
+    int i = 0;
 	
-    /* Set interpolation array */
+    // Set interpolation array
     double delta = 1. / steps;
     double delta_inv = 1. / delta;
 
@@ -102,7 +100,7 @@ int main(int argc, char* argv[])
     vals[0].c1 = FUNC(0.);
 
     prev_val = vals[0].c1;
-    /* Fill interpolation array */
+    // Fill interpolation array
     for(ind=1; ind <= steps; ++ind) {
         double x = ind * delta;
         double val = FUNC(x);
@@ -113,22 +111,30 @@ int main(int argc, char* argv[])
         prev_val = val;
     }
 
-    /* Initialize input array */
+    // Initialize input array
     for(i=0;i<ARRAY_SIZE;++i) {
         src[i]=((double)rand())/RAND_MAX;
     }
 
+//send src using mpi send / mpi recv
+
     START_LOOP_TIME()
-    /*Critical loop requires vectorization */   
- #ifdef _OPENMP
-    #pragma omp simd
- #endif
+    //Critical loop requires vectorization
+// #ifdef _OPENMP
+//    #pragma omp simd
+ //#endif
+
+
     for(i=0; i<ARRAY_SIZE;++i) {
         dst[i] = Interpolate(src[i],vals);
     }
+
+
+//send dst using mpi send / mpi recv
+
     END_LOOP_TIME()
 
-    /* Test results */   
+    // Test results
     for(i=0;i<ARRAY_SIZE;++i) {
         double ref_val = FUNC(src[i]);
 

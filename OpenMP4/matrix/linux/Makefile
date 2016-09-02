@@ -38,7 +38,7 @@ SHELL = /bin/sh
 PARAMODEL = -DUSE_OMP -fopenmp	# Use OpenMP for multithreading
 
 GCC     = gcc
-ICC     = icc
+ICC     = mpiicc
 CFLAGS  = -g -O3
 #OPTFLAGS = -xSSE3 
 OPTFLAGS = -xHost # -fno-alias

@@ -25,6 +25,7 @@
 #include "mkl.h"
 #endif //USE_MKL
 
+#include "omp.h"
 
 #pragma omp declare target
 
@@ -173,31 +174,98 @@ void multiply4(int msize, int tidx, int numt, TYPE a[][NUM], TYPE b[][NUM], TYPE
 
 void multiply0(int msize, int tidx, int numt, TYPE a[][NUM], TYPE b[][NUM], TYPE c[][NUM], TYPE t[][NUM])
 { 
-	int i,j,k;
+  int i,j,k;
 
-// Basic serial implementation
-    for(i=0; i<msize; i++) {
-        for(j=0; j<msize; j++) {
-    	    for(k=0; k<msize; k++) {
-				c[i][j] = c[i][j] + a[i][k] * b[k][j];
-			}
-		}
-	} 
+  int begin, end, amountPerRank, rest;
+
+  printf("size %d rank %d", size, rank);
+
+  amountPerRank = (msize / (size));
+    rest = (msize % (size));
+
+    begin=(rank)*amountPerRank;
+    end=amountPerRank*(rank+1);
+
+    if (rank == (size -1))
+      end=end+rest;
+
+  #pragma omp parallel for collapse (2) 
+  for(i=begin; i<end; i++) {
+    for(k=0; k<msize; k++) {
+      #pragma omp simd 
+      for(j=0; j<msize; j++) {
+        c[i][j] = c[i][j] + a[i][k] * b[k][j];
+      }
+    }
+  } 
+
 }
 
 void multiply1(int msize, int tidx, int numt, TYPE a[][NUM], TYPE b[][NUM], TYPE c[][NUM], TYPE t[][NUM])
 { 
-	int i,j,k;
 
-	// Basic parallel implementation
-	#pragma omp parallel for
-    for(i=0; i<msize; i++) {
-        for(j=0; j<msize; j++) {
-    	    for(k=0; k<msize; k++) {
-				c[i][j] = c[i][j] + a[i][k] * b[k][j];
-			}
-		}
-	} 
+  int i,j,k;
+
+  int begin, end, amountPerRank, rest;
+
+  printf("size %d rank %d", size, rank);
+
+  amountPerRank = (msize / (size));
+  rest = (msize % (size));
+
+  begin=(rank)*amountPerRank;
+  end=amountPerRank*(rank+1);
+
+  if (rank == (size -1))
+    end=end+rest;
+
+  int devices;
+  devices = omp_get_num_devices()+1;
+  printf("devices %d", devices);
+
+  #pragma omp parallel num_threads( devices )
+  {
+
+    int tid = omp_get_thread_num();
+    printf("tid %d", tid);
+     
+    int amountByDevice=((end/2) / devices); 
+    int restByDevice = ((end/2) % devices);
+    int beginByDevice=(tid )*amountByDevice;
+    int endByDevice=amountByDevice*(tid+1);
+
+    if (tid == (devices-1)) endByDevice=endByDevice+restByDevice ;
+
+    if (tid != devices) {
+      printf("!! omp target tid %d", tid);
+ 
+      #pragma omp target device(tid) map(beginByDevice,endByDevice, i , j ,k) map(a[0:NUM][0:NUM]) map(b[0:NUM][0:NUM]) map(c[0:NUM][0:NUM])
+      {
+
+        #pragma omp parallel for collapse (2) 
+        for(i=beginByDevice; i<endByDevice; i++) {
+          for(k=0; k<msize; k++) {
+            #pragma omp simd 
+            for(j=0; j<msize; j++) {
+              c[i][j] = c[i][j] + a[i][k] * b[k][j];
+            }
+          }
+        } 
+      }
+
+    } else {
+      #pragma omp parallel for collapse (2) 
+      for(i=end/2; i<end; i++) {
+        for(k=0; k<msize; k++) {
+          #pragma omp simd 
+          for(j=0; j<msize; j++) {
+            c[i][j] = c[i][j] + a[i][k] * b[k][j];
+          }
+        }
+      } 
+    }
+
+  }
 }
 
 void multiply2(int msize, int tidx, int numt, TYPE a[][NUM], TYPE b[][NUM], TYPE c[][NUM], TYPE t[][NUM])
@@ -223,13 +291,16 @@ void multiply3(int msize, int tidx, int numt, TYPE a[][NUM], TYPE b[][NUM], TYPE
   //{
     int i,j,k;
 	#pragma omp parallel for collapse (2) //num_threads(60)
-	for(i=0; i<msize; i++) {
+	
+        for(i=0; i<msize; i++) {
 		for(k=0; k<msize; k++) {
 			for(j=0; j<msize; j++) {
 				c[i][j] = c[i][j] + a[i][k] * b[k][j];
 			}
 		}
 	}
+
+
   //}
 }
 
