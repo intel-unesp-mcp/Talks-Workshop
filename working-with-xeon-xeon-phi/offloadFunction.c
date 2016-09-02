@@ -24,7 +24,7 @@ __attribute__((target(mic))) void MyFunction() {
 
 int main(int argc, char * argv[] ) {
   A=5;
-  B=2;
+  B=12;
   int cont;
   int n=100;
 
