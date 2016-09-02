@@ -1,12 +1,12 @@
 # talks-source-code
 
-* Hybrid parallel architecture (1:30)
+* Hybrid parallel architecture
   * Compile and running for Intel Xeon
   * Compile and running for Intel Xeon Phi
   * Compile and running for Intel Xeon offloading to Xeon Phi
   * Function offloading
 
-* Vectorization (1:30)
+* Vectorization
   * advisor (matrix)
   * padding
   * stride-test
@@ -19,7 +19,7 @@
     * Interpolation
     * Lattice Boltzmann
  
-* OpenMP 4.0 (1:30)
+* OpenMP 4.0
   * OpenMP Sample Program
   * Affinity
   * Vectorization
@@ -30,7 +30,7 @@
   * Matrix (OpenMP/offload)  
   * N-Body
 
-* MPI/OpenMP (1:30) 
+* MPI/OpenMP
   * Basic MPI Program (Host)
   * Basic MPI Program (Device)
   * Using Several hosts
