@@ -80,7 +80,7 @@ double Interpolate(double x, const point* vals){
 
 
 const int steps = 512;
-const int ARRAY_SIZE = 504800;
+const int ARRAY_SIZE = 2048;//504800;
 
 int main(int argc, char* argv[])
 {
