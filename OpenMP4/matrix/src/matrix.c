@@ -27,6 +27,7 @@
 	#include <immintrin.h>
 	#endif
 #endif
+#include <mpi.h>
 #include <stdio.h>
 #include <time.h>
 #include <malloc.h>
@@ -67,8 +68,13 @@ void print_arr(char *name, TYPE array[][NUM])
   }
 }
 
-int main()
+int main(int argc, char *argv[])
 {
+
+  MPI_Init(&argc, &argv);
+  MPI_Comm_rank(MPI_COMM_WORLD, &rank);
+  MPI_Comm_size(MPI_COMM_WORLD, &size);
+
 #ifdef WIN32
 	clock_t start=0.0, stop=0.0;
 #else // Pthreads
@@ -211,4 +217,6 @@ int main()
 	free (buf3);
 	free (buf4);
 #endif //ALIGNED
+
+  MPI_Finalize();
 }
