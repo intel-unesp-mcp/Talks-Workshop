@@ -2,19 +2,6 @@
 #include <unistd.h>
 #include <stdlib.h>
 
-/*
-__declspec(target(mic)) double A, B, C[100], sum;
-
-__attribute__((target(mic))) void MyFunction() {
-    sum  = A + B;
-}
-__declspec(target(mic)) double A, B, C[100], sum;
-
-__declspec(target(mic)) void MyFunction() {
-    sum  = A + B;
-}
-*/
-
 __attribute__((target(mic))) double A, B, C[100], sum;
 
 __attribute__((target(mic))) void MyFunction() {
