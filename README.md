@@ -25,8 +25,8 @@
   * Vectorization
     * Interpolation (Uniform Clause)
   * Offload
-   * Target
-   * Target Update
+    * Target
+    * Target Update
   * Matrix (OpenMP/offload)  
   * N-Body
 
