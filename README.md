@@ -26,7 +26,14 @@
   * Offload
    * Target
    * Target Update
+  * Matrix (OpenMP/offload)  
   * N-Body
 
 * MPI/OpenMP (1:30) 
-* Daal (1:00)
+  * Basic MPI Program (Host)
+  * Basic MPI Program (Device)
+  * Using Several hosts
+  * Example (Comparing OpenMP and MPI)
+  * Matrix (MPI/OpenMP/offload)
+  * NAS Benchmark
+  * Traceanalyzer
