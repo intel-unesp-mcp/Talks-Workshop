@@ -1,4 +1,4 @@
-# talks-source-code
+# Full Day talks
 
 * Hybrid parallel architecture
   * Compile and running for Intel Xeon
