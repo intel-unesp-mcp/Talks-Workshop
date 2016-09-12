@@ -1,4 +1,4 @@
-# Full Day talks
+# Full Day Talks
 
 * Hybrid parallel architecture
   * Compile and running for Intel Xeon
